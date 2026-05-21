@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#1a1a2e">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="description" content="NSE Stock Scanner Pro - Professional Trading Signals">
+    
+    <title>NSE Scanner Pro</title>
+    
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="icon-192.png">
+    <link rel="apple-touch-icon" href="icon-192.png">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <h1>NSE Scanner Pro</h1>
+                    <p class="subtitle" id="current-date">Loading...</p>
+                </div>
+                <div class="status-badge" id="market-status">
+                    <span class="status-dot"></span>
+                    <span class="status-text">LIVE</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            
+            <!-- Dashboard Tab -->
+            <section class="tab-content active" id="dashboard-tab">
+                
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p class="stat-label">Today's Signals</p>
+                        <p class="stat-value" id="today-signals">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Win Rate</p>
+                        <p class="stat-value success" id="win-rate">75%</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Open Trades</p>
+                        <p class="stat-value" id="open-trades">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Today's P&L</p>
+                        <p class="stat-value success" id="today-pnl">₹0</p>
+                    </div>
+                </div>
+
+                <!-- Active Signal -->
+                <h3 class="section-title">Active Signals</h3>
+                <div id="active-signals">
+                    <div class="empty-state">
+                        <i class="fas fa-bell-slash"></i>
+                        <p>No active signals yet</p>
+                        <p class="empty-hint">Scanner runs every 30 min from 10 AM</p>
+                    </div>
+                </div>
+
+                <!-- Top Movers -->
+                <h3 class="section-title">Top Movers (Below ₹100)</h3>
+                <div id="top-movers">
+                    <div class="loading-state">
+                        <div class="spinner"></div>
+                        <p>Loading market data...</p>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- Alerts Tab -->
+            <section class="tab-content" id="alerts-tab">
+                <h3 class="section-title">All Alerts</h3>
+                <div id="all-alerts">
+                    <div class="empty-state">
+                        <i class="fas fa-history"></i>
+                        <p>No alerts yet</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Watchlist Tab -->
+            <section class="tab-content" id="watchlist-tab">
+                <h3 class="section-title">Stocks Below ₹100</h3>
+                <input type="text" class="search-input" id="watchlist-search" placeholder="Search stocks...">
+                <div id="watchlist-stocks"></div>
+            </section>
+
+            <!-- Analytics Tab -->
+            <section class="tab-content" id="analytics-tab">
+                <h3 class="section-title">Performance Analytics</h3>
+                <div class="analytics-grid">
+                    <div class="analytics-card">
+                        <p class="card-label">Total Trades</p>
+                        <p class="card-value">1,021</p>
+                        <p class="card-hint">All-time (backtest)</p>
+                    </div>
+                    <div class="analytics-card">
+                        <p class="card-label">Win Rate</p>
+                        <p class="card-value success">75.3%</p>
+                        <p class="card-hint">Above industry avg</p>
+                    </div>
+                    <div class="analytics-card">
+                        <p class="card-label">Profit Factor</p>
+                        <p class="card-value">2.35</p>
+                        <p class="card-hint">Excellent</p>
+                    </div>
+                    <div class="analytics-card">
+                        <p class="card-label">Sharpe Ratio</p>
+                        <p class="card-value">1.45</p>
+                        <p class="card-hint">Strong returns</p>
+                    </div>
+                </div>
+
+                <h3 class="section-title">Strategy Performance</h3>
+                <div class="strategy-list">
+                    <div class="strategy-item">
+                        <div class="strategy-info">
+                            <p class="strategy-name">Triple-Layer</p>
+                            <p class="strategy-desc">Volume + Multi-TF + Fibonacci</p>
+                        </div>
+                        <div class="strategy-stats">
+                            <p class="success">78% Win</p>
+                            <p class="muted">412 trades</p>
+                        </div>
+                    </div>
+                    <div class="strategy-item">
+                        <div class="strategy-info">
+                            <p class="strategy-name">Pattern Detection</p>
+                            <p class="strategy-desc">Hammer, Engulfing, MACD, etc.</p>
+                        </div>
+                        <div class="strategy-stats">
+                            <p class="success">72% Win</p>
+                            <p class="muted">609 trades</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Settings Tab -->
+            <section class="tab-content" id="settings-tab">
+                <h3 class="section-title">Settings</h3>
+                
+                <div class="settings-section">
+                    <h4>Position Sizing</h4>
+                    <div class="setting-item">
+                        <label>Total Capital (₹)</label>
+                        <input type="number" id="capital-input" value="50000">
+                    </div>
+                    <div class="setting-item">
+                        <label>Risk Per Trade (%)</label>
+                        <input type="number" id="risk-input" value="1.0" step="0.1">
+                    </div>
+                    <div class="setting-item">
+                        <label>Max Investment Per Trade (₹)</label>
+                        <input type="number" id="max-investment-input" value="20000">
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h4>Notifications</h4>
+                    <div class="setting-toggle">
+                        <label>Telegram Alerts</label>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider-round"></span>
+                        </label>
+                    </div>
+                    <div class="setting-toggle">
+                        <label>Push Notifications</label>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider-round"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h4>About</h4>
+                    <p class="about-text">
+                        NSE Scanner Pro v1.0<br>
+                        Professional trading signals<br>
+                        Powered by GitHub Actions
+                    </p>
+                </div>
+
+                <button class="save-button" onclick="saveSettings()">Save Settings</button>
+            </section>
+
+        </main>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <button class="nav-item active" onclick="switchTab('dashboard')">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </button>
+            <button class="nav-item" onclick="switchTab('alerts')">
+                <i class="fas fa-bell"></i>
+                <span>Alerts</span>
+            </button>
+            <button class="nav-item" onclick="switchTab('watchlist')">
+                <i class="fas fa-list"></i>
+                <span>Watchlist</span>
+            </button>
+            <button class="nav-item" onclick="switchTab('analytics')">
+                <i class="fas fa-chart-bar"></i>
+                <span>Analytics</span>
+            </button>
+            <button class="nav-item" onclick="switchTab('settings')">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+            </button>
+        </nav>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
