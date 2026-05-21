@@ -35,20 +35,53 @@ const STOCKS_BELOW_100 = [
     { symbol: "RVNL", sector: "Infrastructure" },
     { symbol: "GMRINFRA", sector: "Infrastructure" },
     { symbol: "HUDCO", sector: "Infrastructure" },
+    { symbol: "HCC", sector: "Infrastructure" },
+    { symbol: "CGPOWER", sector: "Infrastructure" },
+    { symbol: "PNCINFRA", sector: "Infrastructure" },
+    { symbol: "RAYMOND", sector: "Infrastructure" },
     { symbol: "MOREPENLAB", sector: "Pharma" },
     { symbol: "GLENMARK", sector: "Pharma" },
     { symbol: "AUROPHARMA", sector: "Pharma" },
+    { symbol: "INDOCO", sector: "Pharma" },
+    { symbol: "FDC", sector: "Pharma" },
+    { symbol: "BLISSGVS", sector: "Pharma" },
+    { symbol: "JBCHEPHARM", sector: "Pharma" },
     { symbol: "SAIL", sector: "Metals" },
     { symbol: "JINDALSTEL", sector: "Metals" },
+    { symbol: "WELCORP", sector: "Metals" },
+    { symbol: "JSL", sector: "Metals" },
+    { symbol: "RATNAMANI", sector: "Metals" },
+    { symbol: "JSWENERGY", sector: "Metals" },
+    { symbol: "GMDCLTD", sector: "Metals" },
     { symbol: "ASHOKLEY", sector: "Auto" },
     { symbol: "TATAMOTORS", sector: "Auto" },
     { symbol: "JKTYRE", sector: "Auto" },
+    { symbol: "CEATLTD", sector: "Auto" },
     { symbol: "APOLLOTYRE", sector: "Auto" },
+    { symbol: "FIEMIND", sector: "Auto" },
+    { symbol: "MOTHERSON", sector: "Auto" },
+    { symbol: "DLF", sector: "Real Estate" },
+    { symbol: "OMAXAUTO", sector: "Real Estate" },
+    { symbol: "ANANTRAJ", sector: "Real Estate" },
+    { symbol: "SUNTECK", sector: "Real Estate" },
+    { symbol: "MAHINDCIE", sector: "Real Estate" },
+    { symbol: "ROUTE", sector: "IT" },
+    { symbol: "INTELLECT", sector: "IT" },
+    { symbol: "MASTEK", sector: "IT" },
     { symbol: "PAYTM", sector: "IT" },
     { symbol: "ZOMATO", sector: "IT" },
     { symbol: "TRIDENT", sector: "Textile" },
+    { symbol: "VARDHACRLC", sector: "Textile" },
     { symbol: "ALOKINDS", sector: "Textile" },
+    { symbol: "WELSPUNLIV", sector: "Textile" },
+    { symbol: "BIRLATYRE", sector: "Textile" },
+    { symbol: "MMTC", sector: "Consumer" },
     { symbol: "MOIL", sector: "Mining" },
+    { symbol: "PAGEIND", sector: "Consumer" },
+    { symbol: "PRAKASH", sector: "Consumer" },
+    { symbol: "JINDWORLD", sector: "Consumer" },
+    { symbol: "CGCL", sector: "Consumer" },
+    { symbol: "ORIENTHOT", sector: "Consumer" }
 ];
 
 // Initialize app
@@ -80,18 +113,17 @@ function updateDateTime() {
         dateElement.textContent = `${day}, ${date} ${month} ${year} · ${hours}:${minutes} ${ampm}`;
     }
     
-    // Update market status
     updateMarketStatus(now);
 }
 
 // Update market status (open/closed)
 function updateMarketStatus(now) {
-    const day = now.getDay(); // 0 = Sunday, 6 = Saturday
+    const day = now.getDay();
     const hours = now.getHours();
     const minutes = now.getMinutes();
     const currentTime = hours * 60 + minutes;
-    const marketOpen = 9 * 60 + 15;  // 9:15 AM
-    const marketClose = 15 * 60 + 30; // 3:30 PM
+    const marketOpen = 9 * 60 + 15;
+    const marketClose = 15 * 60 + 30;
     
     const statusElement = document.getElementById('market-status');
     if (!statusElement) return;
@@ -100,19 +132,16 @@ function updateMarketStatus(now) {
     const statusDot = statusElement.querySelector('.status-dot');
     
     if (day === 0 || day === 6) {
-        // Weekend
         statusText.textContent = 'CLOSED';
         statusDot.style.background = '#ff5f6d';
         statusElement.style.background = 'rgba(255, 95, 109, 0.15)';
         statusText.style.color = '#ff5f6d';
     } else if (currentTime >= marketOpen && currentTime <= marketClose) {
-        // Market open
         statusText.textContent = 'LIVE';
         statusDot.style.background = '#00d29c';
         statusElement.style.background = 'rgba(0, 210, 156, 0.15)';
         statusText.style.color = '#00d29c';
     } else {
-        // Market closed
         statusText.textContent = 'CLOSED';
         statusDot.style.background = '#ffc857';
         statusElement.style.background = 'rgba(255, 200, 87, 0.15)';
@@ -122,123 +151,47 @@ function updateMarketStatus(now) {
 
 // Tab switching
 function switchTab(tabName) {
-    // Update active tab content
     document.querySelectorAll('.tab-content').forEach(tab => {
         tab.classList.remove('active');
     });
     document.getElementById(`${tabName}-tab`).classList.add('active');
     
-    // Update active nav item
     document.querySelectorAll('.nav-item').forEach(item => {
         item.classList.remove('active');
     });
     event.currentTarget.classList.add('active');
     
-    // Scroll to top
     window.scrollTo(0, 0);
 }
 
-// Load dashboard with demo data
+// Load dashboard - REAL DATA ONLY (no demo)
 function loadDashboard() {
-    // Demo data - will be replaced with real data from Telegram/GitHub
-    const demoSignals = [
-        {
-            symbol: "SUZLON",
-            strategy: "Triple-Layer",
-            time: "10:30 AM",
-            current_price: 53.42,
-            change: 0.85,
-            entry: 53.42,
-            sl: 52.50,
-            target: 55.26,
-            layers: ["Vol 2.1×", "D+0.4%", "Fib 50%"],
-            shares: 543,
-            investment: 29007
-        }
-    ];
-
-    const demoMovers = [
-        { symbol: "SUZLON", sector: "Energy", price: 53.42, change: 3.45 },
-        { symbol: "IDBI", sector: "Banking", price: 92.10, change: 2.10 },
-        { symbol: "NHPC", sector: "Energy", price: 84.50, change: 1.85 },
-        { symbol: "PNB", sector: "Banking", price: 95.30, change: 1.55 },
-        { symbol: "IDEA", sector: "Telecom", price: 14.50, change: -2.30 },
-        { symbol: "ZOMATO", sector: "IT", price: 78.20, change: -1.85 }
-    ];
-
-    // Update stats
-    document.getElementById('today-signals').textContent = demoSignals.length;
+    // Initialize with zero/empty values
+    document.getElementById('today-signals').textContent = '0';
     document.getElementById('open-trades').textContent = '0';
     document.getElementById('today-pnl').textContent = '₹0';
+    document.getElementById('win-rate').textContent = '--';
 
-    // Render signals
+    // Active Signals - Empty state
     const signalsContainer = document.getElementById('active-signals');
-    if (demoSignals.length > 0) {
-        signalsContainer.innerHTML = demoSignals.map(s => `
-            <div class="signal-card">
-                <div class="signal-header">
-                    <div>
-                        <p class="signal-stock">${s.symbol}</p>
-                        <p class="signal-strategy">${s.strategy} · ${s.time}</p>
-                    </div>
-                    <div class="signal-price">
-                        <p class="price-current">₹${s.current_price}</p>
-                        <p class="price-change ${s.change >= 0 ? 'up' : 'down'}">${s.change >= 0 ? '+' : ''}${s.change}%</p>
-                    </div>
-                </div>
-                
-                <div class="signal-levels">
-                    <div class="level-item">
-                        <p class="level-label">Entry</p>
-                        <p class="level-value entry">₹${s.entry}</p>
-                    </div>
-                    <div class="level-item">
-                        <p class="level-label">Stop Loss</p>
-                        <p class="level-value sl">₹${s.sl}</p>
-                    </div>
-                    <div class="level-item">
-                        <p class="level-label">Target</p>
-                        <p class="level-value target">₹${s.target}</p>
-                    </div>
-                </div>
-                
-                <div class="signal-layers">
-                    ${s.layers.map(l => `<span class="layer-tag">${l}</span>`).join('')}
-                </div>
-                
-                <div class="position-info">
-                    <div class="position-item">
-                        <p class="position-label">Shares</p>
-                        <p class="position-value">${s.shares}</p>
-                    </div>
-                    <div class="position-item">
-                        <p class="position-label">Investment</p>
-                        <p class="position-value">₹${s.investment.toLocaleString()}</p>
-                    </div>
-                </div>
-            </div>
-        `).join('');
-    }
-
-    // Render movers
-    const moversContainer = document.getElementById('top-movers');
-    moversContainer.innerHTML = demoMovers.map(m => `
-        <div class="mover-item">
-            <div class="mover-left">
-                <div class="mover-icon ${m.change >= 0 ? 'up' : 'down'}">
-                    <i class="fas fa-arrow-${m.change >= 0 ? 'up' : 'down'}"></i>
-                </div>
-                <div>
-                    <p class="mover-name">${m.symbol}</p>
-                    <p class="mover-sector">${m.sector}</p>
-                </div>
-            </div>
-            <div class="mover-right">
-                <p class="mover-price">₹${m.price}</p>
-                <p class="mover-change ${m.change >= 0 ? 'up' : 'down'}" style="color: ${m.change >= 0 ? '#00d29c' : '#ff5f6d'}">${m.change >= 0 ? '+' : ''}${m.change}%</p>
-            </div>
+    signalsContainer.innerHTML = `
+        <div class="empty-state">
+            <i class="fas fa-bell-slash"></i>
+            <p>No active signals yet</p>
+            <p class="empty-hint">Scanner runs every 30 min from 10 AM - 2:30 PM IST</p>
+            <p class="empty-hint" style="margin-top: 12px;">Real signals will appear here when found</p>
         </div>
-    `).join('');
+    `;
+
+    // Top Movers - Empty state (will be populated when data is available)
+    const moversContainer = document.getElementById('top-movers');
+    moversContainer.innerHTML = `
+        <div class="empty-state">
+            <i class="fas fa-chart-line"></i>
+            <p>Market data will appear here</p>
+            <p class="empty-hint">After scanner runs during market hours</p>
+        </div>
+    `;
 }
 
 // Load watchlist
@@ -257,7 +210,7 @@ function loadWatchlist() {
             </div>
             <div class="mover-right">
                 <p class="mover-price">--</p>
-                <p class="mover-change muted">Tap to view</p>
+                <p class="mover-change" style="color: #6b7383;">View live</p>
             </div>
         </div>
     `).join('');
@@ -306,7 +259,6 @@ function saveSettings() {
     localStorage.setItem('risk', risk);
     localStorage.setItem('maxInvestment', maxInvestment);
 
-    // Show success animation
     const button = document.querySelector('.save-button');
     const originalText = button.textContent;
     button.textContent = '✓ Saved!';
