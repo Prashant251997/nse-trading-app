@@ -8,7 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(fetchSignals, 60000);
 });
 
-let stocksData = []; // Will store live stock data
+let stocksData = [];
+let currentChartSymbol = null;
 
 function updateDateTime() {
     const now = new Date();
@@ -67,26 +68,113 @@ function switchTab(tabName) {
     event.currentTarget.classList.add('active');
     window.scrollTo(0, 0);
     
-    // Refresh data when switching tabs
     if (tabName === 'watchlist') {
         renderWatchlist();
     }
 }
 
-// ── FETCH REAL SIGNALS AND MARKET DATA ────────────────────────────────────────
+// ═══════════════════════════════════════════════════════════════════════════
+// CHART MODAL FUNCTIONS - NEW!
+// ═══════════════════════════════════════════════════════════════════════════
+
+function openChart(symbol, sector, price, changePct) {
+    const modal = document.getElementById('chart-modal');
+    const nameEl = document.getElementById('modal-stock-name');
+    const detailEl = document.getElementById('modal-stock-detail');
+    
+    currentChartSymbol = symbol;
+    nameEl.textContent = symbol;
+    
+    const changeText = `${changePct >= 0 ? '+' : ''}${changePct}%`;
+    const changeColor = changePct >= 0 ? '#00d29c' : '#ff5f6d';
+    
+    detailEl.innerHTML = `${sector} · <span style="color: ${changeColor}">₹${price} (${changeText})</span>`;
+    
+    // Clear old chart
+    document.getElementById('tradingview-chart').innerHTML = '';
+    
+    // Show modal
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    
+    // Load TradingView Chart
+    setTimeout(() => {
+        if (typeof TradingView !== 'undefined') {
+            new TradingView.widget({
+                "autosize": true,
+                "symbol": "NSE:" + symbol,
+                "interval": "15",
+                "timezone": "Asia/Kolkata",
+                "theme": "dark",
+                "style": "1",
+                "locale": "en",
+                "toolbar_bg": "#1a1f2e",
+                "enable_publishing": false,
+                "allow_symbol_change": false,
+                "hide_top_toolbar": false,
+                "hide_side_toolbar": false,
+                "container_id": "tradingview-chart",
+                "studies": [
+                    "RSI@tv-basicstudies",
+                    "MAExp@tv-basicstudies",
+                    "Volume@tv-basicstudies"
+                ],
+                "show_popup_button": true,
+                "popup_width": "1000",
+                "popup_height": "650",
+                "save_image": false,
+                "details": false,
+                "hotlist": false,
+                "calendar": false
+            });
+        } else {
+            document.getElementById('tradingview-chart').innerHTML = `
+                <div style="display:flex; align-items:center; justify-content:center; height:100%; color:#a8b0bd;">
+                    <p>Chart library loading... Please refresh.</p>
+                </div>
+            `;
+        }
+    }, 100);
+}
+
+function closeChartModal() {
+    const modal = document.getElementById('chart-modal');
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+    
+    // Clear chart after animation
+    setTimeout(() => {
+        document.getElementById('tradingview-chart').innerHTML = '';
+        currentChartSymbol = null;
+    }, 300);
+}
+
+// Close modal on ESC key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        const modal = document.getElementById('chart-modal');
+        if (modal.classList.contains('active')) {
+            closeChartModal();
+        }
+    }
+});
+
+// ═══════════════════════════════════════════════════════════════════════════
+// FETCH SIGNALS
+// ═══════════════════════════════════════════════════════════════════════════
+
 async function fetchSignals() {
     try {
         const response = await fetch('signals.json?t=' + Date.now());
         if (!response.ok) throw new Error('No data yet');
         const data = await response.json();
         
-        // Store stocks data for watchlist
         if (data.market_data && data.market_data.all_stocks) {
             stocksData = data.market_data.all_stocks;
         }
         
         updateDashboard(data);
-        renderWatchlist(); // Update watchlist with new data
+        renderWatchlist();
     } catch (err) {
         console.log('Waiting for data...', err.message);
         showEmptyDashboard();
@@ -94,16 +182,12 @@ async function fetchSignals() {
 }
 
 function updateDashboard(data) {
-    // Update stats
     document.getElementById('today-signals').textContent = data.total_signals || 0;
     document.getElementById('open-trades').textContent = '0';
     document.getElementById('today-pnl').textContent = '₹0';
     document.getElementById('win-rate').textContent = '75%';
     
-    // Update Active Signals
     renderSignals(data);
-    
-    // Update Top Movers
     renderTopMovers(data);
 }
 
@@ -124,8 +208,13 @@ function renderSignals(data) {
     
     container.innerHTML = data.signals.map(s => {
         const qe = s.quality_score >= 80 ? '💎 ELITE' : s.quality_score >= 60 ? '⭐ HIGH' : '📊 GOOD';
+        // Find sector from stocksData
+        const stockInfo = stocksData.find(st => st.symbol === s.symbol);
+        const sector = stockInfo ? stockInfo.sector : 'Stock';
+        const changePct = stockInfo ? stockInfo.change_pct : 0;
+        
         return `
-            <div class="signal-card">
+            <div class="signal-card" onclick="openChart('${s.symbol}', '${sector}', ${s.current_price}, ${changePct})">
                 <div class="signal-header">
                     <div>
                         <p class="signal-stock">${s.symbol}</p>
@@ -184,7 +273,6 @@ function renderTopMovers(data) {
         return;
     }
     
-    // Combine top gainers and losers (3 each)
     const gainers = (data.market_data.top_gainers || []).slice(0, 3);
     const losers = (data.market_data.top_losers || []).slice(0, 3);
     const allMovers = [...gainers, ...losers];
@@ -201,7 +289,7 @@ function renderTopMovers(data) {
     }
     
     container.innerHTML = allMovers.map(m => `
-        <div class="mover-item">
+        <div class="mover-item" onclick="openChart('${m.symbol}', '${m.sector}', ${m.price}, ${m.change_pct})">
             <div class="mover-left">
                 <div class="mover-icon ${m.change_pct >= 0 ? 'up' : 'down'}">
                     <i class="fas fa-arrow-${m.change_pct >= 0 ? 'up' : 'down'}"></i>
@@ -234,11 +322,10 @@ function renderWatchlist() {
         return;
     }
     
-    // Sort by symbol
     const sorted = [...stocksData].sort((a, b) => a.symbol.localeCompare(b.symbol));
     
     container.innerHTML = sorted.map(s => `
-        <div class="mover-item">
+        <div class="mover-item" onclick="openChart('${s.symbol}', '${s.sector}', ${s.price}, ${s.change_pct})">
             <div class="mover-left">
                 <div class="mover-icon ${s.change_pct >= 0 ? 'up' : 'down'}">
                     <i class="fas fa-${s.change_pct >= 0 ? 'arrow-up' : 'arrow-down'}"></i>
@@ -255,7 +342,6 @@ function renderWatchlist() {
         </div>
     `).join('');
     
-    // Setup search
     const search = document.getElementById('watchlist-search');
     if (search && !search.dataset.listenerAdded) {
         search.dataset.listenerAdded = 'true';
