@@ -74,7 +74,7 @@ function switchTab(tabName) {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
-// CHART MODAL FUNCTIONS - NEW!
+// CHART MODAL - WITH MULTIPLE CHART SOURCES
 // ═══════════════════════════════════════════════════════════════════════════
 
 function openChart(symbol, sector, price, changePct) {
@@ -90,14 +90,55 @@ function openChart(symbol, sector, price, changePct) {
     
     detailEl.innerHTML = `${sector} · <span style="color: ${changeColor}">₹${price} (${changeText})</span>`;
     
-    // Clear old chart
-    document.getElementById('tradingview-chart').innerHTML = '';
-    
     // Show modal
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
     
-    // Load TradingView Chart
+    // Render the chart container with chart source buttons
+    renderChartContainer(symbol, price, changePct, sector);
+}
+
+function renderChartContainer(symbol, price, changePct, sector) {
+    const container = document.getElementById('modal-chart-container');
+    
+    // Build chart with multiple source options
+    container.innerHTML = `
+        <div class="chart-source-tabs">
+            <button class="chart-tab active" onclick="loadTradingView('${symbol}')">
+                <i class="fas fa-chart-line"></i> TradingView
+            </button>
+            <button class="chart-tab" onclick="loadMoneyControl('${symbol}')">
+                <i class="fas fa-rupee-sign"></i> MoneyControl
+            </button>
+            <button class="chart-tab" onclick="loadInvesting('${symbol}')">
+                <i class="fas fa-globe"></i> Investing
+            </button>
+        </div>
+        <div id="chart-loader-area">
+            <div id="tradingview-chart" style="height: 100%; width: 100%;"></div>
+        </div>
+        <div class="chart-external-links">
+            <a href="https://www.tradingview.com/symbols/NSE-${symbol}/" target="_blank" class="external-link">
+                <i class="fas fa-external-link-alt"></i> Open Full Chart on TradingView
+            </a>
+            <a href="https://in.tradingview.com/chart/?symbol=NSE%3A${symbol}" target="_blank" class="external-link">
+                <i class="fas fa-expand"></i> TradingView Advanced View
+            </a>
+        </div>
+    `;
+    
+    // Load TradingView by default
+    loadTradingView(symbol);
+}
+
+function loadTradingView(symbol) {
+    // Mark this tab as active
+    document.querySelectorAll('.chart-tab').forEach(t => t.classList.remove('active'));
+    document.querySelector('.chart-tab:nth-child(1)').classList.add('active');
+    
+    const loaderArea = document.getElementById('chart-loader-area');
+    loaderArea.innerHTML = '<div id="tradingview-chart" style="height: 100%; width: 100%;"></div>';
+    
     setTimeout(() => {
         if (typeof TradingView !== 'undefined') {
             new TradingView.widget({
@@ -110,31 +151,126 @@ function openChart(symbol, sector, price, changePct) {
                 "locale": "en",
                 "toolbar_bg": "#1a1f2e",
                 "enable_publishing": false,
-                "allow_symbol_change": false,
-                "hide_top_toolbar": false,
-                "hide_side_toolbar": false,
+                "allow_symbol_change": true,
                 "container_id": "tradingview-chart",
                 "studies": [
                     "RSI@tv-basicstudies",
-                    "MAExp@tv-basicstudies",
                     "Volume@tv-basicstudies"
                 ],
-                "show_popup_button": true,
-                "popup_width": "1000",
-                "popup_height": "650",
                 "save_image": false,
-                "details": false,
-                "hotlist": false,
-                "calendar": false
+                "hide_side_toolbar": false,
+                "details": false
             });
-        } else {
-            document.getElementById('tradingview-chart').innerHTML = `
-                <div style="display:flex; align-items:center; justify-content:center; height:100%; color:#a8b0bd;">
-                    <p>Chart library loading... Please refresh.</p>
-                </div>
-            `;
         }
     }, 100);
+}
+
+function loadMoneyControl(symbol) {
+    document.querySelectorAll('.chart-tab').forEach(t => t.classList.remove('active'));
+    document.querySelector('.chart-tab:nth-child(2)').classList.add('active');
+    
+    const loaderArea = document.getElementById('chart-loader-area');
+    loaderArea.innerHTML = `
+        <div class="chart-fallback">
+            <div class="fallback-icon">
+                <i class="fas fa-chart-area"></i>
+            </div>
+            <h3>${symbol} - Chart View</h3>
+            <p>View detailed charts on these professional platforms:</p>
+            
+            <div class="chart-options">
+                <a href="https://www.moneycontrol.com/stockpricequote/${symbol}" target="_blank" class="chart-option-card">
+                    <i class="fas fa-rupee-sign"></i>
+                    <div>
+                        <p class="option-name">MoneyControl</p>
+                        <p class="option-desc">Indian stock charts</p>
+                    </div>
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+                
+                <a href="https://chartink.com/stocks/${symbol.toLowerCase()}.html" target="_blank" class="chart-option-card">
+                    <i class="fas fa-chart-bar"></i>
+                    <div>
+                        <p class="option-name">Chartink</p>
+                        <p class="option-desc">Technical analysis</p>
+                    </div>
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+                
+                <a href="https://www.nseindia.com/get-quotes/equity?symbol=${symbol}" target="_blank" class="chart-option-card">
+                    <i class="fas fa-landmark"></i>
+                    <div>
+                        <p class="option-name">NSE India Official</p>
+                        <p class="option-desc">Real-time data</p>
+                    </div>
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+                
+                <a href="https://in.tradingview.com/chart/?symbol=NSE%3A${symbol}" target="_blank" class="chart-option-card">
+                    <i class="fas fa-chart-line"></i>
+                    <div>
+                        <p class="option-name">TradingView Full</p>
+                        <p class="option-desc">Advanced charts</p>
+                    </div>
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+            </div>
+        </div>
+    `;
+}
+
+function loadInvesting(symbol) {
+    document.querySelectorAll('.chart-tab').forEach(t => t.classList.remove('active'));
+    document.querySelector('.chart-tab:nth-child(3)').classList.add('active');
+    
+    const loaderArea = document.getElementById('chart-loader-area');
+    loaderArea.innerHTML = `
+        <div class="chart-fallback">
+            <div class="fallback-icon">
+                <i class="fas fa-globe"></i>
+            </div>
+            <h3>${symbol} - International View</h3>
+            <p>View on these global platforms:</p>
+            
+            <div class="chart-options">
+                <a href="https://www.investing.com/search/?q=${symbol}+NSE" target="_blank" class="chart-option-card">
+                    <i class="fas fa-globe"></i>
+                    <div>
+                        <p class="option-name">Investing.com</p>
+                        <p class="option-desc">Global financial data</p>
+                    </div>
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+                
+                <a href="https://finance.yahoo.com/quote/${symbol}.NS" target="_blank" class="chart-option-card">
+                    <i class="fab fa-yahoo"></i>
+                    <div>
+                        <p class="option-name">Yahoo Finance</p>
+                        <p class="option-desc">Charts & analysis</p>
+                    </div>
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+                
+                <a href="https://www.google.com/finance/quote/${symbol}:NSE" target="_blank" class="chart-option-card">
+                    <i class="fab fa-google"></i>
+                    <div>
+                        <p class="option-name">Google Finance</p>
+                        <p class="option-desc">Quick overview</p>
+                    </div>
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+                
+                <a href="https://www.screener.in/company/${symbol}" target="_blank" class="chart-option-card">
+                    <i class="fas fa-search-dollar"></i>
+                    <div>
+                        <p class="option-name">Screener.in</p>
+                        <p class="option-desc">Fundamentals</p>
+                    </div>
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+            </div>
+        </div>
+    `;
 }
 
 function closeChartModal() {
@@ -142,25 +278,23 @@ function closeChartModal() {
     modal.classList.remove('active');
     document.body.style.overflow = '';
     
-    // Clear chart after animation
     setTimeout(() => {
-        document.getElementById('tradingview-chart').innerHTML = '';
+        document.getElementById('modal-chart-container').innerHTML = '';
         currentChartSymbol = null;
     }, 300);
 }
 
-// Close modal on ESC key
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
         const modal = document.getElementById('chart-modal');
-        if (modal.classList.contains('active')) {
+        if (modal && modal.classList.contains('active')) {
             closeChartModal();
         }
     }
 });
 
 // ═══════════════════════════════════════════════════════════════════════════
-// FETCH SIGNALS
+// SIGNALS & DATA
 // ═══════════════════════════════════════════════════════════════════════════
 
 async function fetchSignals() {
@@ -208,7 +342,6 @@ function renderSignals(data) {
     
     container.innerHTML = data.signals.map(s => {
         const qe = s.quality_score >= 80 ? '💎 ELITE' : s.quality_score >= 60 ? '⭐ HIGH' : '📊 GOOD';
-        // Find sector from stocksData
         const stockInfo = stocksData.find(st => st.symbol === s.symbol);
         const sector = stockInfo ? stockInfo.sector : 'Stock';
         const changePct = stockInfo ? stockInfo.change_pct : 0;
@@ -282,7 +415,6 @@ function renderTopMovers(data) {
             <div class="empty-state">
                 <i class="fas fa-chart-line"></i>
                 <p>No market data yet</p>
-                <p class="empty-hint">Updates with scanner runs</p>
             </div>
         `;
         return;
