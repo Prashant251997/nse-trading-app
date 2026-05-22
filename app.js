@@ -1,41 +1,14 @@
-// Stock list
-const STOCKS_BELOW_100 = [
-    { symbol: "YESBANK", sector: "Banking" }, { symbol: "IDFCFIRSTB", sector: "Banking" },
-    { symbol: "IDBI", sector: "Banking" }, { symbol: "PNB", sector: "Banking" },
-    { symbol: "UNIONBANK", sector: "Banking" }, { symbol: "IOB", sector: "Banking" },
-    { symbol: "CENTRALBK", sector: "Banking" }, { symbol: "UCOBANK", sector: "Banking" },
-    { symbol: "MAHABANK", sector: "Banking" }, { symbol: "BANKINDIA", sector: "Banking" },
-    { symbol: "INDIANB", sector: "Banking" }, { symbol: "PSB", sector: "Banking" },
-    { symbol: "UJJIVANSFB", sector: "Banking" }, { symbol: "SOUTHBANK", sector: "Banking" },
-    { symbol: "DCBBANK", sector: "Banking" }, { symbol: "SUZLON", sector: "Energy" },
-    { symbol: "NHPC", sector: "Energy" }, { symbol: "SJVN", sector: "Energy" },
-    { symbol: "BHEL", sector: "Energy" }, { symbol: "RPOWER", sector: "Energy" },
-    { symbol: "JPPOWER", sector: "Energy" }, { symbol: "IRFC", sector: "Energy" },
-    { symbol: "IDEA", sector: "Telecom" }, { symbol: "HFCL", sector: "Telecom" },
-    { symbol: "ITI", sector: "Telecom" }, { symbol: "NBCC", sector: "Infrastructure" },
-    { symbol: "IRCON", sector: "Infrastructure" }, { symbol: "RVNL", sector: "Infrastructure" },
-    { symbol: "GMRINFRA", sector: "Infrastructure" }, { symbol: "HUDCO", sector: "Infrastructure" },
-    { symbol: "MOREPENLAB", sector: "Pharma" }, { symbol: "GLENMARK", sector: "Pharma" },
-    { symbol: "SAIL", sector: "Metals" }, { symbol: "JINDALSTEL", sector: "Metals" },
-    { symbol: "ASHOKLEY", sector: "Auto" }, { symbol: "TATAMOTORS", sector: "Auto" },
-    { symbol: "JKTYRE", sector: "Auto" }, { symbol: "APOLLOTYRE", sector: "Auto" },
-    { symbol: "PAYTM", sector: "IT" }, { symbol: "ZOMATO", sector: "IT" },
-    { symbol: "TRIDENT", sector: "Textile" }, { symbol: "ALOKINDS", sector: "Textile" },
-    { symbol: "MOIL", sector: "Mining" }
-];
-
 // Initialize app
 document.addEventListener('DOMContentLoaded', () => {
     updateDateTime();
     setInterval(updateDateTime, 60000);
     loadDashboard();
-    loadWatchlist();
     loadSettings();
     registerServiceWorker();
-    
-    // Auto-refresh signals every 60 seconds
     setInterval(fetchSignals, 60000);
 });
+
+let stocksData = []; // Will store live stock data
 
 function updateDateTime() {
     const now = new Date();
@@ -93,33 +66,52 @@ function switchTab(tabName) {
     document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
     event.currentTarget.classList.add('active');
     window.scrollTo(0, 0);
-}
-
-// ── FETCH REAL SIGNALS FROM signals.json ──────────────────────────────────────
-async function fetchSignals() {
-    try {
-        // Add cache-busting timestamp
-        const response = await fetch('signals.json?t=' + Date.now());
-        if (!response.ok) throw new Error('No signals.json yet');
-        const data = await response.json();
-        updateDashboardWithRealData(data);
-    } catch (err) {
-        console.log('Waiting for scanner data...', err.message);
-        showEmptyState();
+    
+    // Refresh data when switching tabs
+    if (tabName === 'watchlist') {
+        renderWatchlist();
     }
 }
 
-function updateDashboardWithRealData(data) {
+// ── FETCH REAL SIGNALS AND MARKET DATA ────────────────────────────────────────
+async function fetchSignals() {
+    try {
+        const response = await fetch('signals.json?t=' + Date.now());
+        if (!response.ok) throw new Error('No data yet');
+        const data = await response.json();
+        
+        // Store stocks data for watchlist
+        if (data.market_data && data.market_data.all_stocks) {
+            stocksData = data.market_data.all_stocks;
+        }
+        
+        updateDashboard(data);
+        renderWatchlist(); // Update watchlist with new data
+    } catch (err) {
+        console.log('Waiting for data...', err.message);
+        showEmptyDashboard();
+    }
+}
+
+function updateDashboard(data) {
     // Update stats
     document.getElementById('today-signals').textContent = data.total_signals || 0;
     document.getElementById('open-trades').textContent = '0';
     document.getElementById('today-pnl').textContent = '₹0';
     document.getElementById('win-rate').textContent = '75%';
+    
+    // Update Active Signals
+    renderSignals(data);
+    
+    // Update Top Movers
+    renderTopMovers(data);
+}
 
-    const signalsContainer = document.getElementById('active-signals');
+function renderSignals(data) {
+    const container = document.getElementById('active-signals');
     
     if (!data.signals || data.signals.length === 0) {
-        signalsContainer.innerHTML = `
+        container.innerHTML = `
             <div class="empty-state">
                 <i class="fas fa-bell-slash"></i>
                 <p>No active signals yet</p>
@@ -130,10 +122,8 @@ function updateDashboardWithRealData(data) {
         return;
     }
     
-    signalsContainer.innerHTML = data.signals.map(s => {
-        const qualityBadge = s.quality_score >= 80 ? '💎 ELITE' : 
-                            s.quality_score >= 60 ? '⭐ HIGH' : '📊 GOOD';
-        
+    container.innerHTML = data.signals.map(s => {
+        const qe = s.quality_score >= 80 ? '💎 ELITE' : s.quality_score >= 60 ? '⭐ HIGH' : '📊 GOOD';
         return `
             <div class="signal-card">
                 <div class="signal-header">
@@ -143,10 +133,9 @@ function updateDashboardWithRealData(data) {
                     </div>
                     <div class="signal-price">
                         <p class="price-current">₹${s.current_price}</p>
-                        <p class="price-change up">${qualityBadge}</p>
+                        <p class="price-change up">${qe}</p>
                     </div>
                 </div>
-                
                 <div class="signal-levels">
                     <div class="level-item">
                         <p class="level-label">Entry</p>
@@ -161,13 +150,11 @@ function updateDashboardWithRealData(data) {
                         <p class="level-value target">₹${s.target}</p>
                     </div>
                 </div>
-                
                 <div class="signal-layers">
                     <span class="layer-tag">Vol ${s.layer1?.vol_ratio || '--'}×</span>
                     <span class="layer-tag">RSI ${s.layer1?.rsi || '--'}</span>
-                    <span class="layer-tag">Q-Score ${s.quality_score}</span>
+                    <span class="layer-tag">Q-${s.quality_score}</span>
                 </div>
-                
                 ${s.position ? `
                 <div class="position-info">
                     <div class="position-item">
@@ -184,43 +171,77 @@ function updateDashboardWithRealData(data) {
     }).join('');
 }
 
-function showEmptyState() {
-    document.getElementById('today-signals').textContent = '0';
-    document.getElementById('open-trades').textContent = '0';
-    document.getElementById('today-pnl').textContent = '₹0';
-    document.getElementById('win-rate').textContent = '--';
+function renderTopMovers(data) {
+    const container = document.getElementById('top-movers');
     
-    const signalsContainer = document.getElementById('active-signals');
-    signalsContainer.innerHTML = `
-        <div class="empty-state">
-            <i class="fas fa-bell-slash"></i>
-            <p>Waiting for scanner data</p>
-            <p class="empty-hint">Scanner runs every 30 min from 10 AM - 2:30 PM IST</p>
-            <p class="empty-hint" style="margin-top: 8px;">App refreshes automatically</p>
-        </div>
-    `;
+    if (!data.market_data) {
+        container.innerHTML = `
+            <div class="empty-state">
+                <i class="fas fa-chart-line"></i>
+                <p>Market data loading...</p>
+            </div>
+        `;
+        return;
+    }
     
-    const moversContainer = document.getElementById('top-movers');
-    moversContainer.innerHTML = `
-        <div class="empty-state">
-            <i class="fas fa-chart-line"></i>
-            <p>Market data will appear here</p>
-            <p class="empty-hint">After scanner runs</p>
-        </div>
-    `;
-}
-
-function loadDashboard() {
-    fetchSignals(); // Fetch on load
-}
-
-function loadWatchlist() {
-    const container = document.getElementById('watchlist-stocks');
-    container.innerHTML = STOCKS_BELOW_100.map(s => `
+    // Combine top gainers and losers (3 each)
+    const gainers = (data.market_data.top_gainers || []).slice(0, 3);
+    const losers = (data.market_data.top_losers || []).slice(0, 3);
+    const allMovers = [...gainers, ...losers];
+    
+    if (allMovers.length === 0) {
+        container.innerHTML = `
+            <div class="empty-state">
+                <i class="fas fa-chart-line"></i>
+                <p>No market data yet</p>
+                <p class="empty-hint">Updates with scanner runs</p>
+            </div>
+        `;
+        return;
+    }
+    
+    container.innerHTML = allMovers.map(m => `
         <div class="mover-item">
             <div class="mover-left">
-                <div class="mover-icon up">
-                    <i class="fas fa-chart-line"></i>
+                <div class="mover-icon ${m.change_pct >= 0 ? 'up' : 'down'}">
+                    <i class="fas fa-arrow-${m.change_pct >= 0 ? 'up' : 'down'}"></i>
+                </div>
+                <div>
+                    <p class="mover-name">${m.symbol}</p>
+                    <p class="mover-sector">${m.sector}</p>
+                </div>
+            </div>
+            <div class="mover-right">
+                <p class="mover-price">₹${m.price}</p>
+                <p class="mover-change" style="color: ${m.change_pct >= 0 ? '#00d29c' : '#ff5f6d'}">${m.change_pct >= 0 ? '+' : ''}${m.change_pct}%</p>
+            </div>
+        </div>
+    `).join('');
+}
+
+function renderWatchlist() {
+    const container = document.getElementById('watchlist-stocks');
+    if (!container) return;
+    
+    if (stocksData.length === 0) {
+        container.innerHTML = `
+            <div class="empty-state">
+                <i class="fas fa-chart-line"></i>
+                <p>Loading watchlist...</p>
+                <p class="empty-hint">Prices update every 30 min</p>
+            </div>
+        `;
+        return;
+    }
+    
+    // Sort by symbol
+    const sorted = [...stocksData].sort((a, b) => a.symbol.localeCompare(b.symbol));
+    
+    container.innerHTML = sorted.map(s => `
+        <div class="mover-item">
+            <div class="mover-left">
+                <div class="mover-icon ${s.change_pct >= 0 ? 'up' : 'down'}">
+                    <i class="fas fa-${s.change_pct >= 0 ? 'arrow-up' : 'arrow-down'}"></i>
                 </div>
                 <div>
                     <p class="mover-name">${s.symbol}</p>
@@ -228,14 +249,16 @@ function loadWatchlist() {
                 </div>
             </div>
             <div class="mover-right">
-                <p class="mover-price">--</p>
-                <p class="mover-change" style="color: #6b7383;">Live</p>
+                <p class="mover-price">₹${s.price}</p>
+                <p class="mover-change" style="color: ${s.change_pct >= 0 ? '#00d29c' : '#ff5f6d'}">${s.change_pct >= 0 ? '+' : ''}${s.change_pct}%</p>
             </div>
         </div>
     `).join('');
-
+    
+    // Setup search
     const search = document.getElementById('watchlist-search');
-    if (search) {
+    if (search && !search.dataset.listenerAdded) {
+        search.dataset.listenerAdded = 'true';
         search.addEventListener('input', (e) => {
             const query = e.target.value.toUpperCase();
             const items = container.querySelectorAll('.mover-item');
@@ -250,6 +273,32 @@ function loadWatchlist() {
             });
         });
     }
+}
+
+function showEmptyDashboard() {
+    document.getElementById('today-signals').textContent = '0';
+    document.getElementById('open-trades').textContent = '0';
+    document.getElementById('today-pnl').textContent = '₹0';
+    document.getElementById('win-rate').textContent = '--';
+    
+    document.getElementById('active-signals').innerHTML = `
+        <div class="empty-state">
+            <i class="fas fa-bell-slash"></i>
+            <p>Waiting for scanner data</p>
+            <p class="empty-hint">Scanner runs every 30 min from 10 AM</p>
+        </div>
+    `;
+    
+    document.getElementById('top-movers').innerHTML = `
+        <div class="empty-state">
+            <i class="fas fa-chart-line"></i>
+            <p>Loading market data...</p>
+        </div>
+    `;
+}
+
+function loadDashboard() {
+    fetchSignals();
 }
 
 function loadSettings() {
@@ -288,7 +337,7 @@ function saveSettings() {
 function registerServiceWorker() {
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('service-worker.js')
-            .then(reg => console.log('Service Worker registered'))
+            .then(reg => console.log('SW registered'))
             .catch(err => console.log('SW failed:', err));
     }
 }
