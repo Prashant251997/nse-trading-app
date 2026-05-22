@@ -1,0 +1,42 @@
+name: NSE Scanner with JSON Output
+
+on:
+  schedule:
+    - cron: '0,30 4-8 * * 1-5'
+    - cron: '0 9 * * 1-5'
+
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install yfinance requests pytz pandas numpy
+
+      - name: Run Scanner v2
+        env:
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+          CHAT_ID: ${{ secrets.CHAT_ID }}
+        run: python scanner_with_json.py
+
+      - name: Commit signals.json
+        run: |
+          git config --global user.name "Scanner Bot"
+          git config --global user.email "bot@scanner.com"
+          git add signals.json
+          git diff --staged --quiet || git commit -m "Update signals data [auto]"
+          git push
