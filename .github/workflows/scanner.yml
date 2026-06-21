@@ -2,8 +2,7 @@ name: Swing Scanner EOD
 
 on:
   schedule:
-    # 4:15 PM IST = 10:45 AM UTC — after market close, data is final.
-    # Even if GitHub delays this 30 min, it doesn't matter (EOD system).
+    # 4:15 PM IST = 10:45 AM UTC
     - cron: '45 10 * * 1-5'
 
   workflow_dispatch:
@@ -25,7 +24,14 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: pip install yfinance requests pytz pandas numpy
+        run: |
+          pip install --upgrade pip
+          pip install yfinance requests pytz pandas numpy
+
+      - name: Show repository files
+        run: |
+          pwd
+          ls -la
 
       - name: Run Swing Scanner
         env:
@@ -34,13 +40,18 @@ jobs:
           TOTAL_CAPITAL: ${{ secrets.TOTAL_CAPITAL }}
           RISK_PERCENT: ${{ secrets.RISK_PERCENT }}
           MAX_INVESTMENT: ${{ secrets.MAX_INVESTMENT }}
-        run: python scanner_swing.py
+        run: python Scanner-swing.py
 
       - name: Commit signals.json
         run: |
           git config --global user.name "Scanner Bot"
           git config --global user.email "bot@scanner.com"
+
           git pull --rebase origin main || true
+
           git add signals.json
-          git diff --staged --quiet || git commit -m "EOD swing scan [auto]"
-          git push
+
+          if ! git diff --staged --quiet; then
+            git commit -m "EOD swing scan [auto]"
+            git push
+          fi
