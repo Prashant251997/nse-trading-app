@@ -40,7 +40,7 @@ jobs:
           TOTAL_CAPITAL: ${{ secrets.TOTAL_CAPITAL }}
           RISK_PERCENT: ${{ secrets.RISK_PERCENT }}
           MAX_INVESTMENT: ${{ secrets.MAX_INVESTMENT }}
-        run: python Scanner-swing.py
+        run: python scanner_swing.py
 
       - name: Commit signals.json
         run: |
