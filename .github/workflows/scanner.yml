@@ -2,8 +2,7 @@ name: Swing Scanner EOD
 
 on:
   schedule:
-    # 4:15 PM IST = 10:45 AM UTC — after market close, data is final.
-    # Even if GitHub delays this 30 min, it doesn't matter (EOD system).
+    # 4:15 PM IST = 10:45 AM UTC
     - cron: '45 10 * * 1-5'
 
   workflow_dispatch:
@@ -34,9 +33,6 @@ jobs:
         env:
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
           CHAT_ID: ${{ secrets.CHAT_ID }}
-          TOTAL_CAPITAL: ${{ secrets.TOTAL_CAPITAL }}
-          RISK_PERCENT: ${{ secrets.RISK_PERCENT }}
-          MAX_INVESTMENT: ${{ secrets.MAX_INVESTMENT }}
         run: python scanner_swing.py
 
       - name: Commit signals.json
