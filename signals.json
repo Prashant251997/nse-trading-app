@@ -1,368 +1,458 @@
 {
-  "last_updated": "2026-07-23T17:43:54.970706+05:30",
-  "last_updated_display": "23 Jul 2026  05:43 PM IST",
+  "last_updated": "2026-07-24T17:36:38.936411+05:30",
+  "last_updated_display": "24 Jul 2026  05:36 PM IST",
   "market_open": false,
   "total_signals": 0,
-  "scan_time": "05:43 PM",
+  "scan_time": "05:36 PM",
   "signals": [],
   "market_data": {
     "total_stocks": 24,
-    "advancing": 1,
-    "declining": 23,
+    "advancing": 12,
+    "declining": 12,
     "top_gainers": [
-      {
-        "symbol": "UJJIVANSFB",
-        "sector": "Banking",
-        "price": 68.78,
-        "change": 3.73,
-        "change_pct": 5.73,
-        "volume_ratio": 8.48,
-        "high": 72.24,
-        "low": 61.75
-      }
-    ],
-    "top_losers": [
       {
         "symbol": "JINDWORLD",
         "sector": "Consumer",
-        "price": 34.04,
-        "change": -3.11,
-        "change_pct": -8.37,
-        "volume_ratio": 1.32,
-        "high": 37.19,
-        "low": 33.5
+        "price": 37.83,
+        "change": 3.79,
+        "change_pct": 11.13,
+        "volume_ratio": 4.84,
+        "high": 39.71,
+        "low": 33.34
       },
       {
-        "symbol": "HCC",
-        "sector": "Infrastructure",
-        "price": 21.44,
-        "change": -0.62,
-        "change_pct": -2.81,
-        "volume_ratio": 0.78,
-        "high": 22.25,
-        "low": 21.37
-      },
-      {
-        "symbol": "IDEA",
-        "sector": "Telecom",
-        "price": 13.2,
-        "change": -0.34,
-        "change_pct": -2.51,
-        "volume_ratio": 1.04,
-        "high": 13.54,
-        "low": 13.18
-      },
-      {
-        "symbol": "VARDHACRLC",
-        "sector": "Textile",
-        "price": 42.1,
-        "change": -1.07,
-        "change_pct": -2.48,
-        "volume_ratio": 0.72,
-        "high": 43.31,
-        "low": 42.0
-      },
-      {
-        "symbol": "IOB",
+        "symbol": "MAHABANK",
         "sector": "Banking",
-        "price": 33.82,
-        "change": -0.77,
-        "change_pct": -2.23,
-        "volume_ratio": 0.82,
-        "high": 34.64,
-        "low": 33.65
+        "price": 81.03,
+        "change": 2.55,
+        "change_pct": 3.25,
+        "volume_ratio": 0.95,
+        "high": 81.49,
+        "low": 78.02
       },
       {
-        "symbol": "UCOBANK",
+        "symbol": "UJJIVANSFB",
         "sector": "Banking",
-        "price": 26.0,
-        "change": -0.55,
-        "change_pct": -2.07,
-        "volume_ratio": 1.47,
-        "high": 26.49,
-        "low": 25.85
-      },
-      {
-        "symbol": "NBCC",
-        "sector": "Infrastructure",
-        "price": 93.15,
-        "change": -1.59,
-        "change_pct": -1.68,
-        "volume_ratio": 0.7,
-        "high": 95.05,
-        "low": 93.0
-      },
-      {
-        "symbol": "RTNINDIA",
-        "sector": "Energy",
-        "price": 31.52,
-        "change": -0.53,
-        "change_pct": -1.65,
-        "volume_ratio": 0.43,
-        "high": 31.99,
-        "low": 31.47
-      },
-      {
-        "symbol": "SJVN",
-        "sector": "Energy",
-        "price": 67.68,
-        "change": -0.98,
-        "change_pct": -1.43,
-        "volume_ratio": 1.18,
-        "high": 68.74,
-        "low": 67.5
+        "price": 70.72,
+        "change": 1.94,
+        "change_pct": 2.82,
+        "volume_ratio": 2.75,
+        "high": 71.5,
+        "low": 67.91
       },
       {
         "symbol": "MOREPENLAB",
         "sector": "Pharma",
-        "price": 52.45,
-        "change": -0.75,
-        "change_pct": -1.41,
-        "volume_ratio": 0.48,
-        "high": 53.95,
-        "low": 52.1
+        "price": 53.8,
+        "change": 1.35,
+        "change_pct": 2.57,
+        "volume_ratio": 0.5,
+        "high": 54.19,
+        "low": 51.38
+      },
+      {
+        "symbol": "IDFCFIRSTB",
+        "sector": "Banking",
+        "price": 80.79,
+        "change": 0.89,
+        "change_pct": 1.11,
+        "volume_ratio": 0.88,
+        "high": 81.09,
+        "low": 78.88
+      },
+      {
+        "symbol": "NBCC",
+        "sector": "Infrastructure",
+        "price": 93.84,
+        "change": 0.69,
+        "change_pct": 0.74,
+        "volume_ratio": 0.7,
+        "high": 94.07,
+        "low": 91.35
+      },
+      {
+        "symbol": "IRFC",
+        "sector": "Energy",
+        "price": 87.62,
+        "change": 0.59,
+        "change_pct": 0.68,
+        "volume_ratio": 0.7,
+        "high": 87.85,
+        "low": 86.02
+      },
+      {
+        "symbol": "ALOKINDS",
+        "sector": "Textile",
+        "price": 12.07,
+        "change": 0.05,
+        "change_pct": 0.42,
+        "volume_ratio": 0.69,
+        "high": 12.13,
+        "low": 11.93
+      },
+      {
+        "symbol": "CENTRALBK",
+        "sector": "Banking",
+        "price": 31.03,
+        "change": 0.08,
+        "change_pct": 0.26,
+        "volume_ratio": 0.56,
+        "high": 31.17,
+        "low": 30.52
+      },
+      {
+        "symbol": "RTNINDIA",
+        "sector": "Energy",
+        "price": 31.6,
+        "change": 0.08,
+        "change_pct": 0.25,
+        "volume_ratio": 0.54,
+        "high": 31.9,
+        "low": 30.71
+      }
+    ],
+    "top_losers": [
+      {
+        "symbol": "SOUTHBANK",
+        "sector": "Banking",
+        "price": 46.52,
+        "change": -0.98,
+        "change_pct": -2.06,
+        "volume_ratio": 0.52,
+        "high": 47.5,
+        "low": 45.9
+      },
+      {
+        "symbol": "PSB",
+        "sector": "Banking",
+        "price": 23.77,
+        "change": -0.37,
+        "change_pct": -1.53,
+        "volume_ratio": 0.83,
+        "high": 24.05,
+        "low": 23.41
+      },
+      {
+        "symbol": "NHPC",
+        "sector": "Energy",
+        "price": 79.39,
+        "change": -0.86,
+        "change_pct": -1.07,
+        "volume_ratio": 0.47,
+        "high": 79.98,
+        "low": 78.78
+      },
+      {
+        "symbol": "MMTC",
+        "sector": "Consumer",
+        "price": 61.52,
+        "change": -0.42,
+        "change_pct": -0.68,
+        "volume_ratio": 0.68,
+        "high": 61.8,
+        "low": 60.21
+      },
+      {
+        "symbol": "IDEA",
+        "sector": "Telecom",
+        "price": 13.13,
+        "change": -0.07,
+        "change_pct": -0.53,
+        "volume_ratio": 1.12,
+        "high": 13.18,
+        "low": 12.76
+      },
+      {
+        "symbol": "UCOBANK",
+        "sector": "Banking",
+        "price": 25.88,
+        "change": -0.12,
+        "change_pct": -0.46,
+        "volume_ratio": 0.97,
+        "high": 25.95,
+        "low": 25.28
+      },
+      {
+        "symbol": "VARDHACRLC",
+        "sector": "Textile",
+        "price": 41.95,
+        "change": -0.15,
+        "change_pct": -0.36,
+        "volume_ratio": 0.52,
+        "high": 42.9,
+        "low": 41.5
+      },
+      {
+        "symbol": "TRIDENT",
+        "sector": "Textile",
+        "price": 25.12,
+        "change": -0.07,
+        "change_pct": -0.28,
+        "volume_ratio": 0.66,
+        "high": 25.24,
+        "low": 24.71
+      },
+      {
+        "symbol": "SUZLON",
+        "sector": "Energy",
+        "price": 52.28,
+        "change": -0.11,
+        "change_pct": -0.21,
+        "volume_ratio": 0.81,
+        "high": 52.58,
+        "low": 51.79
+      },
+      {
+        "symbol": "IDBI",
+        "sector": "Banking",
+        "price": 84.93,
+        "change": -0.13,
+        "change_pct": -0.15,
+        "volume_ratio": 0.54,
+        "high": 85.49,
+        "low": 82.66
       }
     ],
     "all_stocks": [
       {
         "symbol": "YESBANK",
         "sector": "Banking",
-        "price": 22.93,
-        "change": -0.31,
-        "change_pct": -1.33,
-        "volume_ratio": 0.71,
-        "high": 23.2,
-        "low": 22.83
+        "price": 22.95,
+        "change": 0.02,
+        "change_pct": 0.09,
+        "volume_ratio": 0.66,
+        "high": 23.02,
+        "low": 22.64
       },
       {
         "symbol": "IDFCFIRSTB",
         "sector": "Banking",
-        "price": 79.9,
-        "change": -0.82,
-        "change_pct": -1.02,
-        "volume_ratio": 0.61,
-        "high": 81.18,
-        "low": 79.7
+        "price": 80.79,
+        "change": 0.89,
+        "change_pct": 1.11,
+        "volume_ratio": 0.88,
+        "high": 81.09,
+        "low": 78.88
       },
       {
         "symbol": "IDBI",
         "sector": "Banking",
-        "price": 85.06,
-        "change": -0.87,
-        "change_pct": -1.01,
-        "volume_ratio": 0.46,
-        "high": 85.5,
-        "low": 84.2
+        "price": 84.93,
+        "change": -0.13,
+        "change_pct": -0.15,
+        "volume_ratio": 0.54,
+        "high": 85.49,
+        "low": 82.66
       },
       {
         "symbol": "IOB",
         "sector": "Banking",
-        "price": 33.82,
-        "change": -0.77,
-        "change_pct": -2.23,
-        "volume_ratio": 0.82,
-        "high": 34.64,
-        "low": 33.65
+        "price": 33.88,
+        "change": 0.06,
+        "change_pct": 0.18,
+        "volume_ratio": 0.58,
+        "high": 34.0,
+        "low": 33.23
       },
       {
         "symbol": "CENTRALBK",
         "sector": "Banking",
-        "price": 30.95,
-        "change": -0.23,
-        "change_pct": -0.74,
-        "volume_ratio": 0.69,
-        "high": 31.18,
-        "low": 30.78
+        "price": 31.03,
+        "change": 0.08,
+        "change_pct": 0.26,
+        "volume_ratio": 0.56,
+        "high": 31.17,
+        "low": 30.52
       },
       {
         "symbol": "UCOBANK",
         "sector": "Banking",
-        "price": 26.0,
-        "change": -0.55,
-        "change_pct": -2.07,
-        "volume_ratio": 1.47,
-        "high": 26.49,
-        "low": 25.85
+        "price": 25.88,
+        "change": -0.12,
+        "change_pct": -0.46,
+        "volume_ratio": 0.97,
+        "high": 25.95,
+        "low": 25.28
       },
       {
         "symbol": "MAHABANK",
         "sector": "Banking",
-        "price": 78.48,
-        "change": -0.69,
-        "change_pct": -0.87,
-        "volume_ratio": 0.51,
-        "high": 80.1,
-        "low": 78.06
+        "price": 81.03,
+        "change": 2.55,
+        "change_pct": 3.25,
+        "volume_ratio": 0.95,
+        "high": 81.49,
+        "low": 78.02
       },
       {
         "symbol": "PSB",
         "sector": "Banking",
-        "price": 24.14,
-        "change": -0.29,
-        "change_pct": -1.19,
-        "volume_ratio": 0.6,
-        "high": 24.42,
-        "low": 24.04
+        "price": 23.77,
+        "change": -0.37,
+        "change_pct": -1.53,
+        "volume_ratio": 0.83,
+        "high": 24.05,
+        "low": 23.41
       },
       {
         "symbol": "UJJIVANSFB",
         "sector": "Banking",
-        "price": 68.78,
-        "change": 3.73,
-        "change_pct": 5.73,
-        "volume_ratio": 8.48,
-        "high": 72.24,
-        "low": 61.75
+        "price": 70.72,
+        "change": 1.94,
+        "change_pct": 2.82,
+        "volume_ratio": 2.75,
+        "high": 71.5,
+        "low": 67.91
       },
       {
         "symbol": "SOUTHBANK",
         "sector": "Banking",
-        "price": 47.5,
-        "change": -0.5,
-        "change_pct": -1.04,
-        "volume_ratio": 0.89,
-        "high": 48.1,
-        "low": 46.75
+        "price": 46.52,
+        "change": -0.98,
+        "change_pct": -2.06,
+        "volume_ratio": 0.52,
+        "high": 47.5,
+        "low": 45.9
       },
       {
         "symbol": "SUZLON",
         "sector": "Energy",
-        "price": 52.39,
-        "change": -0.62,
-        "change_pct": -1.17,
-        "volume_ratio": 0.82,
-        "high": 53.22,
-        "low": 52.15
+        "price": 52.28,
+        "change": -0.11,
+        "change_pct": -0.21,
+        "volume_ratio": 0.81,
+        "high": 52.58,
+        "low": 51.79
       },
       {
         "symbol": "NHPC",
         "sector": "Energy",
-        "price": 80.25,
-        "change": -0.03,
-        "change_pct": -0.04,
-        "volume_ratio": 2.47,
-        "high": 81.59,
-        "low": 79.0
+        "price": 79.39,
+        "change": -0.86,
+        "change_pct": -1.07,
+        "volume_ratio": 0.47,
+        "high": 79.98,
+        "low": 78.78
       },
       {
         "symbol": "SJVN",
         "sector": "Energy",
-        "price": 67.68,
-        "change": -0.98,
-        "change_pct": -1.43,
-        "volume_ratio": 1.18,
-        "high": 68.74,
-        "low": 67.5
+        "price": 67.58,
+        "change": -0.1,
+        "change_pct": -0.15,
+        "volume_ratio": 0.76,
+        "high": 67.74,
+        "low": 66.81
       },
       {
         "symbol": "IRFC",
         "sector": "Energy",
-        "price": 87.03,
-        "change": -0.36,
-        "change_pct": -0.41,
-        "volume_ratio": 0.57,
-        "high": 87.87,
-        "low": 86.51
+        "price": 87.62,
+        "change": 0.59,
+        "change_pct": 0.68,
+        "volume_ratio": 0.7,
+        "high": 87.85,
+        "low": 86.02
       },
       {
         "symbol": "RTNINDIA",
         "sector": "Energy",
-        "price": 31.52,
-        "change": -0.53,
-        "change_pct": -1.65,
-        "volume_ratio": 0.43,
-        "high": 31.99,
-        "low": 31.47
+        "price": 31.6,
+        "change": 0.08,
+        "change_pct": 0.25,
+        "volume_ratio": 0.54,
+        "high": 31.9,
+        "low": 30.71
       },
       {
         "symbol": "IDEA",
         "sector": "Telecom",
-        "price": 13.2,
-        "change": -0.34,
-        "change_pct": -2.51,
-        "volume_ratio": 1.04,
-        "high": 13.54,
-        "low": 13.18
+        "price": 13.13,
+        "change": -0.07,
+        "change_pct": -0.53,
+        "volume_ratio": 1.12,
+        "high": 13.18,
+        "low": 12.76
       },
       {
         "symbol": "NBCC",
         "sector": "Infrastructure",
-        "price": 93.15,
-        "change": -1.59,
-        "change_pct": -1.68,
+        "price": 93.84,
+        "change": 0.69,
+        "change_pct": 0.74,
         "volume_ratio": 0.7,
-        "high": 95.05,
-        "low": 93.0
+        "high": 94.07,
+        "low": 91.35
       },
       {
         "symbol": "HCC",
         "sector": "Infrastructure",
-        "price": 21.44,
-        "change": -0.62,
-        "change_pct": -2.81,
-        "volume_ratio": 0.78,
-        "high": 22.25,
-        "low": 21.37
+        "price": 21.43,
+        "change": -0.01,
+        "change_pct": -0.05,
+        "volume_ratio": 1.22,
+        "high": 21.7,
+        "low": 20.92
       },
       {
         "symbol": "MOREPENLAB",
         "sector": "Pharma",
-        "price": 52.45,
-        "change": -0.75,
-        "change_pct": -1.41,
-        "volume_ratio": 0.48,
-        "high": 53.95,
-        "low": 52.1
+        "price": 53.8,
+        "change": 1.35,
+        "change_pct": 2.57,
+        "volume_ratio": 0.5,
+        "high": 54.19,
+        "low": 51.38
       },
       {
         "symbol": "TRIDENT",
         "sector": "Textile",
-        "price": 25.19,
-        "change": -0.26,
-        "change_pct": -1.02,
-        "volume_ratio": 0.56,
-        "high": 25.52,
-        "low": 25.15
+        "price": 25.12,
+        "change": -0.07,
+        "change_pct": -0.28,
+        "volume_ratio": 0.66,
+        "high": 25.24,
+        "low": 24.71
       },
       {
         "symbol": "VARDHACRLC",
         "sector": "Textile",
-        "price": 42.1,
-        "change": -1.07,
-        "change_pct": -2.48,
-        "volume_ratio": 0.72,
-        "high": 43.31,
-        "low": 42.0
+        "price": 41.95,
+        "change": -0.15,
+        "change_pct": -0.36,
+        "volume_ratio": 0.52,
+        "high": 42.9,
+        "low": 41.5
       },
       {
         "symbol": "ALOKINDS",
         "sector": "Textile",
-        "price": 12.02,
-        "change": -0.02,
-        "change_pct": -0.17,
-        "volume_ratio": 1.03,
-        "high": 12.24,
+        "price": 12.07,
+        "change": 0.05,
+        "change_pct": 0.42,
+        "volume_ratio": 0.69,
+        "high": 12.13,
         "low": 11.93
       },
       {
         "symbol": "MMTC",
         "sector": "Consumer",
-        "price": 61.94,
-        "change": -0.33,
-        "change_pct": -0.53,
-        "volume_ratio": 0.65,
-        "high": 63.15,
-        "low": 61.62
+        "price": 61.52,
+        "change": -0.42,
+        "change_pct": -0.68,
+        "volume_ratio": 0.68,
+        "high": 61.8,
+        "low": 60.21
       },
       {
         "symbol": "JINDWORLD",
         "sector": "Consumer",
-        "price": 34.04,
-        "change": -3.11,
-        "change_pct": -8.37,
-        "volume_ratio": 1.32,
-        "high": 37.19,
-        "low": 33.5
+        "price": 37.83,
+        "change": 3.79,
+        "change_pct": 11.13,
+        "volume_ratio": 4.84,
+        "high": 39.71,
+        "low": 33.34
       }
     ]
   },
