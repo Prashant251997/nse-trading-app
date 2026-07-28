@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-28 10:44:28 UTC",
+  "last_updated": "2026-07-28 12:25:46 UTC",
   "total_signals": 5,
   "signals": [
     {
@@ -21,7 +21,7 @@
       "price": 70.12,
       "change_pct": 6.48,
       "vol_ratio": 9.82,
-      "turnover_cr": 2086.46,
+      "turnover_cr": 2086.62,
       "rsi_5m": 32.4,
       "ema_200": 56.28,
       "stop_loss": 69.65,
@@ -35,7 +35,7 @@
       "price": 1976.7,
       "change_pct": 2.1,
       "vol_ratio": 6.89,
-      "turnover_cr": 2969.4,
+      "turnover_cr": 2969.43,
       "rsi_5m": 30.5,
       "ema_200": 1780.57,
       "stop_loss": 1972.2,
@@ -63,7 +63,7 @@
       "price": 4849.7,
       "change_pct": 3.31,
       "vol_ratio": 3.93,
-      "turnover_cr": 1741.84,
+      "turnover_cr": 1742.03,
       "rsi_5m": 59.0,
       "ema_200": 4136.6,
       "stop_loss": 4840.89,
