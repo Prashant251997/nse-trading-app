@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-07-30 10:09:17 UTC",
-  "total_signals": 6,
+  "last_updated": "2026-07-30 12:02:34 UTC",
+  "total_signals": 7,
   "signals": [
     {
       "symbol": "IDFCFIRSTB",
@@ -59,30 +59,44 @@
       "day_low": 13200.0
     },
     {
+      "symbol": "LT",
+      "price": 3937.7,
+      "change_pct": 4.95,
+      "vol_ratio": 4.52,
+      "turnover_cr": 3786.0,
+      "rsi_5m": 69.3,
+      "ema_200": 3900.95,
+      "stop_loss": 3928.17,
+      "target_1": 3951.99,
+      "target_2": 3961.51,
+      "day_high": 3978.2,
+      "day_low": 3720.4
+    },
+    {
       "symbol": "BHARTIARTL",
-      "price": 1951.2,
-      "change_pct": 2.64,
-      "vol_ratio": 4.36,
-      "turnover_cr": 5041.6,
-      "rsi_5m": 46.1,
+      "price": 1956.8,
+      "change_pct": 2.94,
+      "vol_ratio": 4.37,
+      "turnover_cr": 5067.1,
+      "rsi_5m": 69.0,
       "ema_200": 1890.3,
-      "stop_loss": 1947.78,
-      "target_1": 1956.33,
-      "target_2": 1959.74,
+      "stop_loss": 1952.87,
+      "target_1": 1962.7,
+      "target_2": 1966.63,
       "day_high": 1963.0,
       "day_low": 1878.0
     },
     {
       "symbol": "TITAN",
-      "price": 4847.3,
-      "change_pct": 4.46,
+      "price": 4850.0,
+      "change_pct": 4.52,
       "vol_ratio": 4.19,
-      "turnover_cr": 1830.3,
-      "rsi_5m": 58.9,
+      "turnover_cr": 1832.05,
+      "rsi_5m": 61.4,
       "ema_200": 4149.39,
-      "stop_loss": 4836.98,
-      "target_1": 4862.78,
-      "target_2": 4873.09,
+      "stop_loss": 4839.26,
+      "target_1": 4866.1,
+      "target_2": 4876.84,
       "day_high": 4869.5,
       "day_low": 4640.2
     }
