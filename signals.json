@@ -1,34 +1,34 @@
 {
-  "last_updated": "2026-08-06 10:48:06 UTC",
+  "last_updated": "2026-08-07 04:45:41 UTC",
   "total_signals": 2,
   "signals": [
     {
-      "symbol": "BAJFINANCE",
-      "price": 1144.8,
-      "change_pct": 4.99,
-      "vol_ratio": 6.29,
-      "turnover_cr": 7374.34,
-      "rsi_5m": 27.9,
-      "ema_200": 962.19,
-      "stop_loss": 1141.47,
-      "target_1": 1149.8,
-      "target_2": 1153.13,
-      "day_high": 1176.3,
-      "day_low": 1083.9
+      "symbol": "TITAN",
+      "price": 4978.0,
+      "change_pct": 2.41,
+      "vol_ratio": 4.52,
+      "turnover_cr": 1763.49,
+      "rsi_5m": 41.0,
+      "ema_200": 4191.22,
+      "stop_loss": 4959.77,
+      "target_1": 5005.34,
+      "target_2": 5023.56,
+      "day_high": 5003.7,
+      "day_low": 4860.1
     },
     {
-      "symbol": "LT",
-      "price": 4061.8,
-      "change_pct": 2.55,
-      "vol_ratio": 3.94,
-      "turnover_cr": 3368.31,
-      "rsi_5m": 60.6,
-      "ema_200": 3903.65,
-      "stop_loss": 4054.58,
-      "target_1": 4072.63,
-      "target_2": 4079.85,
-      "day_high": 4073.5,
-      "day_low": 3923.2
+      "symbol": "SBIN",
+      "price": 1088.7,
+      "change_pct": 5.19,
+      "vol_ratio": 4.32,
+      "turnover_cr": 4714.54,
+      "rsi_5m": 56.8,
+      "ema_200": 996.25,
+      "stop_loss": 1083.66,
+      "target_1": 1096.25,
+      "target_2": 1101.29,
+      "day_high": 1090.5,
+      "day_low": 1031.1
     }
   ]
 }
