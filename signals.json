@@ -1,34 +1,34 @@
 {
-  "last_updated": "2026-08-07 11:29:23 UTC",
+  "last_updated": "2026-08-10 04:20:47 UTC",
   "total_signals": 2,
   "signals": [
     {
       "symbol": "SBIN",
-      "price": 1097.2,
-      "change_pct": 6.01,
-      "vol_ratio": 6.86,
-      "turnover_cr": 7541.2,
-      "rsi_5m": 33.0,
-      "ema_200": 996.33,
-      "stop_loss": 1088.09,
-      "target_1": 1110.86,
-      "target_2": 1119.97,
+      "price": 1081.8,
+      "change_pct": 3.99,
+      "vol_ratio": 5.65,
+      "turnover_cr": 6746.44,
+      "rsi_5m": 16.4,
+      "ema_200": 998.67,
+      "stop_loss": 1072.13,
+      "target_1": 1096.31,
+      "target_2": 1105.99,
       "day_high": 1123.9,
       "day_low": 1031.1
     },
     {
-      "symbol": "JINDWORLD",
-      "price": 38.93,
-      "change_pct": 2.45,
-      "vol_ratio": 5.31,
-      "turnover_cr": 633.68,
-      "rsi_5m": 51.7,
-      "ema_200": 30.43,
-      "stop_loss": 38.66,
-      "target_1": 39.34,
-      "target_2": 39.61,
-      "day_high": 42.36,
-      "day_low": 37.63
+      "symbol": "M&M",
+      "price": 3516.0,
+      "change_pct": 3.59,
+      "vol_ratio": 3.62,
+      "turnover_cr": 3242.15,
+      "rsi_5m": 71.7,
+      "ema_200": 3240.76,
+      "stop_loss": 3505.43,
+      "target_1": 3531.86,
+      "target_2": 3542.44,
+      "day_high": 3532.0,
+      "day_low": 3384.8
     }
   ]
 }
