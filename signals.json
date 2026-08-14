@@ -1,18 +1,32 @@
 {
-  "last_updated": "2026-08-14 04:41:07 UTC",
-  "total_signals": 1,
+  "last_updated": "2026-08-14 06:04:08 UTC",
+  "total_signals": 2,
   "signals": [
     {
+      "symbol": "TITAN",
+      "price": 5077.8,
+      "change_pct": 3.0,
+      "vol_ratio": 6.83,
+      "turnover_cr": 3379.6,
+      "rsi_5m": 46.1,
+      "ema_200": 4248.27,
+      "stop_loss": 5067.1,
+      "target_1": 5093.86,
+      "target_2": 5104.56,
+      "day_high": 5168.0,
+      "day_low": 4892.9
+    },
+    {
       "symbol": "MAHABANK",
-      "price": 80.55,
-      "change_pct": 2.87,
-      "vol_ratio": 5.27,
-      "turnover_cr": 469.65,
-      "rsi_5m": 30.5,
-      "ema_200": 72.46,
-      "stop_loss": 80.1,
-      "target_1": 81.22,
-      "target_2": 81.67,
+      "price": 80.13,
+      "change_pct": 2.34,
+      "vol_ratio": 5.35,
+      "turnover_cr": 482.89,
+      "rsi_5m": 38.4,
+      "ema_200": 72.32,
+      "stop_loss": 79.94,
+      "target_1": 80.41,
+      "target_2": 80.6,
       "day_high": 83.1,
       "day_low": 77.32
     }
