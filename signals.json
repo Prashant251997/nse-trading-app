@@ -1,15 +1,15 @@
 {
-  "last_updated": "2026-08-18 11:02:15 UTC",
+  "last_updated": "2026-08-19 03:36:12 UTC",
   "total_signals": 2,
   "signals": [
     {
       "symbol": "MAHABANK",
       "price": 80.49,
       "change_pct": 2.02,
-      "vol_ratio": 5.52,
+      "vol_ratio": 5.64,
       "turnover_cr": 501.4,
       "rsi_5m": 36.2,
-      "ema_200": 72.59,
+      "ema_200": 72.52,
       "stop_loss": 80.28,
       "target_1": 80.8,
       "target_2": 81.0,
@@ -23,7 +23,7 @@
       "vol_ratio": 2.34,
       "turnover_cr": 433.87,
       "rsi_5m": 52.5,
-      "ema_200": 58.3,
+      "ema_200": 58.22,
       "stop_loss": 72.23,
       "target_1": 72.88,
       "target_2": 73.13,
