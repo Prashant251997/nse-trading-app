@@ -1,34 +1,5 @@
 {
-  "last_updated": "2026-08-19 03:36:12 UTC",
-  "total_signals": 2,
-  "signals": [
-    {
-      "symbol": "MAHABANK",
-      "price": 80.49,
-      "change_pct": 2.02,
-      "vol_ratio": 5.64,
-      "turnover_cr": 501.4,
-      "rsi_5m": 36.2,
-      "ema_200": 72.52,
-      "stop_loss": 80.28,
-      "target_1": 80.8,
-      "target_2": 81.0,
-      "day_high": 83.1,
-      "day_low": 78.89
-    },
-    {
-      "symbol": "UJJIVANSFB",
-      "price": 72.49,
-      "change_pct": 2.94,
-      "vol_ratio": 2.34,
-      "turnover_cr": 433.87,
-      "rsi_5m": 52.5,
-      "ema_200": 58.22,
-      "stop_loss": 72.23,
-      "target_1": 72.88,
-      "target_2": 73.13,
-      "day_high": 72.82,
-      "day_low": 70.42
-    }
-  ]
+  "last_updated": "2026-08-19 04:20:20 UTC",
+  "total_signals": 0,
+  "signals": []
 }
