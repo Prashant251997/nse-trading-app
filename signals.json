@@ -1,15 +1,15 @@
 {
-  "last_updated": "2026-08-21 10:54:29 UTC",
+  "last_updated": "2026-08-24 03:42:58 UTC",
   "total_signals": 1,
   "signals": [
     {
       "symbol": "KOTAKBANK",
       "price": 402.8,
       "change_pct": 2.94,
-      "vol_ratio": 4.18,
+      "vol_ratio": 4.13,
       "turnover_cr": 1638.13,
       "rsi_5m": 74.5,
-      "ema_200": 395.12,
+      "ema_200": 395.2,
       "stop_loss": 402.15,
       "target_1": 403.77,
       "target_2": 404.42,
