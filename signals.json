@@ -1,34 +1,20 @@
 {
-  "last_updated": "2026-08-24 04:28:11 UTC",
-  "total_signals": 2,
+  "last_updated": "2026-08-24 05:10:40 UTC",
+  "total_signals": 1,
   "signals": [
     {
       "symbol": "KOTAKBANK",
-      "price": 401.45,
-      "change_pct": 2.19,
-      "vol_ratio": 3.83,
-      "turnover_cr": 1515.56,
-      "rsi_5m": 39.8,
-      "ema_200": 394.62,
-      "stop_loss": 400.17,
-      "target_1": 403.37,
-      "target_2": 404.65,
+      "price": 402.05,
+      "change_pct": 2.34,
+      "vol_ratio": 3.96,
+      "turnover_cr": 1570.27,
+      "rsi_5m": 38.0,
+      "ema_200": 394.63,
+      "stop_loss": 401.06,
+      "target_1": 403.53,
+      "target_2": 404.51,
       "day_high": 405.85,
       "day_low": 387.2
-    },
-    {
-      "symbol": "MOREPENLAB",
-      "price": 94.68,
-      "change_pct": 5.79,
-      "vol_ratio": 3.47,
-      "turnover_cr": 1064.11,
-      "rsi_5m": 36.4,
-      "ema_200": 52.36,
-      "stop_loss": 93.71,
-      "target_1": 96.13,
-      "target_2": 97.1,
-      "day_high": 97.44,
-      "day_low": 86.01
     }
   ]
 }
