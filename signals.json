@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-08-25 10:19:45 UTC",
-  "total_signals": 3,
+  "last_updated": "2026-08-25 10:57:06 UTC",
+  "total_signals": 2,
   "signals": [
     {
       "symbol": "KOTAKBANK",
@@ -29,20 +29,6 @@
       "target_2": 94.79,
       "day_high": 98.25,
       "day_low": 86.48
-    },
-    {
-      "symbol": "SUNPHARMA",
-      "price": 1916.3,
-      "change_pct": 2.01,
-      "vol_ratio": 3.03,
-      "turnover_cr": 1362.78,
-      "rsi_5m": 69.9,
-      "ema_200": 1804.68,
-      "stop_loss": 1911.45,
-      "target_1": 1923.58,
-      "target_2": 1928.43,
-      "day_high": 1922.9,
-      "day_low": 1874.0
     }
   ]
 }
