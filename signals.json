@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-24 11:05:36 UTC",
+  "last_updated": "2026-08-25 03:37:48 UTC",
   "total_signals": 2,
   "signals": [
     {
@@ -9,7 +9,7 @@
       "vol_ratio": 5.1,
       "turnover_cr": 2019.23,
       "rsi_5m": 67.3,
-      "ema_200": 394.62,
+      "ema_200": 394.55,
       "stop_loss": 400.18,
       "target_1": 403.36,
       "target_2": 404.64,
