@@ -1,48 +1,34 @@
 {
-  "last_updated": "2026-08-31 16:42:06 UTC",
-  "total_signals": 3,
+  "last_updated": "2026-09-01 08:02:19 UTC",
+  "total_signals": 2,
   "signals": [
     {
       "symbol": "KOTAKBANK",
-      "price": 419.4,
-      "change_pct": 5.17,
-      "vol_ratio": 8.18,
-      "turnover_cr": 4027.71,
-      "rsi_5m": 37.0,
-      "ema_200": 395.5,
-      "stop_loss": 417.85,
-      "target_1": 421.73,
-      "target_2": 423.28,
-      "day_high": 427.65,
-      "day_low": 398.2
+      "price": 426.8,
+      "change_pct": 6.09,
+      "vol_ratio": 7.45,
+      "turnover_cr": 3855.76,
+      "rsi_5m": 41.4,
+      "ema_200": 395.81,
+      "stop_loss": 425.99,
+      "target_1": 428.02,
+      "target_2": 428.84,
+      "day_high": 429.1,
+      "day_low": 402.2
     },
     {
-      "symbol": "ICICIBANK",
-      "price": 1454.0,
-      "change_pct": 2.96,
-      "vol_ratio": 4.87,
-      "turnover_cr": 6516.31,
-      "rsi_5m": 68.3,
-      "ema_200": 1359.57,
-      "stop_loss": 1448.91,
-      "target_1": 1461.63,
-      "target_2": 1466.72,
-      "day_high": 1454.0,
-      "day_low": 1409.5
-    },
-    {
-      "symbol": "JINDWORLD",
-      "price": 38.31,
-      "change_pct": 7.61,
-      "vol_ratio": 2.45,
-      "turnover_cr": 104.39,
-      "rsi_5m": 33.7,
-      "ema_200": 31.29,
-      "stop_loss": 38.05,
-      "target_1": 38.7,
-      "target_2": 38.97,
-      "day_high": 39.6,
-      "day_low": 34.59
+      "symbol": "AXISBANK",
+      "price": 1266.2,
+      "change_pct": 2.11,
+      "vol_ratio": 4.54,
+      "turnover_cr": 2750.71,
+      "rsi_5m": 29.0,
+      "ema_200": 1260.41,
+      "stop_loss": 1263.8,
+      "target_1": 1269.8,
+      "target_2": 1272.2,
+      "day_high": 1300.0,
+      "day_low": 1240.0
     }
   ]
 }
