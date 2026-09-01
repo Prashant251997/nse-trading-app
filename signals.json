@@ -1,34 +1,20 @@
 {
-  "last_updated": "2026-09-01 08:02:19 UTC",
-  "total_signals": 2,
+  "last_updated": "2026-09-01 13:28:16 UTC",
+  "total_signals": 1,
   "signals": [
     {
       "symbol": "KOTAKBANK",
-      "price": 426.8,
-      "change_pct": 6.09,
-      "vol_ratio": 7.45,
-      "turnover_cr": 3855.76,
-      "rsi_5m": 41.4,
-      "ema_200": 395.81,
-      "stop_loss": 425.99,
-      "target_1": 428.02,
-      "target_2": 428.84,
+      "price": 425.0,
+      "change_pct": 5.64,
+      "vol_ratio": 7.7,
+      "turnover_cr": 3970.04,
+      "rsi_5m": 46.3,
+      "ema_200": 395.79,
+      "stop_loss": 424.14,
+      "target_1": 426.29,
+      "target_2": 427.14,
       "day_high": 429.1,
       "day_low": 402.2
-    },
-    {
-      "symbol": "AXISBANK",
-      "price": 1266.2,
-      "change_pct": 2.11,
-      "vol_ratio": 4.54,
-      "turnover_cr": 2750.71,
-      "rsi_5m": 29.0,
-      "ema_200": 1260.41,
-      "stop_loss": 1263.8,
-      "target_1": 1269.8,
-      "target_2": 1272.2,
-      "day_high": 1300.0,
-      "day_low": 1240.0
     }
   ]
 }
