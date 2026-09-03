@@ -1,34 +1,20 @@
 {
-  "last_updated": "2026-09-03 07:26:00 UTC",
-  "total_signals": 2,
+  "last_updated": "2026-09-03 12:10:16 UTC",
+  "total_signals": 1,
   "signals": [
     {
       "symbol": "IDFCFIRSTB",
-      "price": 86.73,
-      "change_pct": 3.52,
-      "vol_ratio": 6.53,
-      "turnover_cr": 666.36,
-      "rsi_5m": 44.6,
-      "ema_200": 77.06,
-      "stop_loss": 86.42,
-      "target_1": 87.2,
-      "target_2": 87.51,
-      "day_high": 87.3,
+      "price": 87.5,
+      "change_pct": 4.44,
+      "vol_ratio": 8.93,
+      "turnover_cr": 920.03,
+      "rsi_5m": 54.7,
+      "ema_200": 77.07,
+      "stop_loss": 87.16,
+      "target_1": 88.01,
+      "target_2": 88.35,
+      "day_high": 88.1,
       "day_low": 82.52
-    },
-    {
-      "symbol": "MAHABANK",
-      "price": 87.0,
-      "change_pct": 2.63,
-      "vol_ratio": 6.36,
-      "turnover_cr": 785.42,
-      "rsi_5m": 50.0,
-      "ema_200": 73.63,
-      "stop_loss": 86.68,
-      "target_1": 87.48,
-      "target_2": 87.8,
-      "day_high": 87.23,
-      "day_low": 81.34
     }
   ]
 }
