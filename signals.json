@@ -1,20 +1,34 @@
 {
-  "last_updated": "2026-09-02 12:10:14 UTC",
-  "total_signals": 1,
+  "last_updated": "2026-09-03 07:26:00 UTC",
+  "total_signals": 2,
   "signals": [
     {
-      "symbol": "KOTAKBANK",
-      "price": 423.5,
-      "change_pct": 2.04,
-      "vol_ratio": 6.94,
-      "turnover_cr": 3545.77,
-      "rsi_5m": 62.4,
-      "ema_200": 395.65,
-      "stop_loss": 422.71,
-      "target_1": 424.68,
-      "target_2": 425.47,
-      "day_high": 429.1,
-      "day_low": 415.05
+      "symbol": "IDFCFIRSTB",
+      "price": 86.73,
+      "change_pct": 3.52,
+      "vol_ratio": 6.53,
+      "turnover_cr": 666.36,
+      "rsi_5m": 44.6,
+      "ema_200": 77.06,
+      "stop_loss": 86.42,
+      "target_1": 87.2,
+      "target_2": 87.51,
+      "day_high": 87.3,
+      "day_low": 82.52
+    },
+    {
+      "symbol": "MAHABANK",
+      "price": 87.0,
+      "change_pct": 2.63,
+      "vol_ratio": 6.36,
+      "turnover_cr": 785.42,
+      "rsi_5m": 50.0,
+      "ema_200": 73.63,
+      "stop_loss": 86.68,
+      "target_1": 87.48,
+      "target_2": 87.8,
+      "day_high": 87.23,
+      "day_low": 81.34
     }
   ]
 }
