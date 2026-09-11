@@ -1,48 +1,34 @@
 {
-  "last_updated": "2026-09-10 12:22:14 UTC",
-  "total_signals": 3,
+  "last_updated": "2026-09-11 07:32:32 UTC",
+  "total_signals": 2,
   "signals": [
     {
+      "symbol": "ADANIENT",
+      "price": 3031.6,
+      "change_pct": 3.35,
+      "vol_ratio": 4.51,
+      "turnover_cr": 2889.39,
+      "rsi_5m": 54.3,
+      "ema_200": 2695.38,
+      "stop_loss": 3025.34,
+      "target_1": 3040.99,
+      "target_2": 3047.24,
+      "day_high": 3141.7,
+      "day_low": 2918.1
+    },
+    {
       "symbol": "ADANIPORTS",
-      "price": 1768.0,
-      "change_pct": 3.65,
-      "vol_ratio": 4.65,
-      "turnover_cr": 2017.91,
-      "rsi_5m": 61.2,
-      "ema_200": 1634.56,
-      "stop_loss": 1764.37,
-      "target_1": 1773.45,
-      "target_2": 1777.08,
+      "price": 1761.0,
+      "change_pct": 2.85,
+      "vol_ratio": 4.46,
+      "turnover_cr": 1976.18,
+      "rsi_5m": 69.2,
+      "ema_200": 1636.14,
+      "stop_loss": 1758.21,
+      "target_1": 1765.18,
+      "target_2": 1767.96,
       "day_high": 1785.6,
       "day_low": 1687.0
-    },
-    {
-      "symbol": "ADANIENT",
-      "price": 3077.2,
-      "change_pct": 6.29,
-      "vol_ratio": 4.57,
-      "turnover_cr": 2944.42,
-      "rsi_5m": 53.7,
-      "ema_200": 2687.24,
-      "stop_loss": 3066.98,
-      "target_1": 3092.53,
-      "target_2": 3102.75,
-      "day_high": 3141.7,
-      "day_low": 2882.8
-    },
-    {
-      "symbol": "UJJIVANSFB",
-      "price": 66.5,
-      "change_pct": 5.22,
-      "vol_ratio": 3.73,
-      "turnover_cr": 376.56,
-      "rsi_5m": 52.3,
-      "ema_200": 60.08,
-      "stop_loss": 66.37,
-      "target_1": 66.7,
-      "target_2": 66.83,
-      "day_high": 66.69,
-      "day_low": 62.92
     }
   ]
 }
