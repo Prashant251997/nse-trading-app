@@ -1,5 +1,20 @@
 {
-  "last_updated": "2026-09-18 07:40:13 UTC",
-  "total_signals": 0,
-  "signals": []
+  "last_updated": "2026-09-18 12:21:50 UTC",
+  "total_signals": 1,
+  "signals": [
+    {
+      "symbol": "MOREPENLAB",
+      "price": 120.9,
+      "change_pct": 3.62,
+      "vol_ratio": 4.45,
+      "turnover_cr": 1164.83,
+      "rsi_5m": 57.0,
+      "ema_200": 62.92,
+      "stop_loss": 119.98,
+      "target_1": 122.29,
+      "target_2": 123.21,
+      "day_high": 123.4,
+      "day_low": 97.09
+    }
+  ]
 }
