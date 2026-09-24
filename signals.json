@@ -1,20 +1,5 @@
 {
-  "last_updated": "2026-09-24 07:52:34 UTC",
-  "total_signals": 1,
-  "signals": [
-    {
-      "symbol": "ADANIPORTS",
-      "price": 1791.3,
-      "change_pct": 2.32,
-      "vol_ratio": 3.41,
-      "turnover_cr": 1529.54,
-      "rsi_5m": 62.3,
-      "ema_200": 1651.39,
-      "stop_loss": 1788.25,
-      "target_1": 1795.88,
-      "target_2": 1798.93,
-      "day_high": 1824.0,
-      "day_low": 1744.1
-    }
-  ]
+  "last_updated": "2026-09-24 12:57:47 UTC",
+  "total_signals": 0,
+  "signals": []
 }
