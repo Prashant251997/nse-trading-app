@@ -1,20 +1,5 @@
 {
-  "last_updated": "2026-10-13 17:11:49 UTC",
-  "total_signals": 1,
-  "signals": [
-    {
-      "symbol": "AXISBANK",
-      "price": 1268.4,
-      "change_pct": 2.29,
-      "vol_ratio": 5.47,
-      "turnover_cr": 4133.99,
-      "rsi_5m": 59.8,
-      "ema_200": 1264.3,
-      "stop_loss": 1263.6,
-      "target_1": 1275.6,
-      "target_2": 1280.4,
-      "day_high": 1275.0,
-      "day_low": 1230.6
-    }
-  ]
+  "last_updated": "2026-10-14 08:05:27 UTC",
+  "total_signals": 0,
+  "signals": []
 }
