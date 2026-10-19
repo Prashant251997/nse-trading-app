@@ -1,18 +1,18 @@
 {
-  "last_updated": "2026-10-19 08:10:18 UTC",
+  "last_updated": "2026-10-19 15:33:18 UTC",
   "total_signals": 1,
   "signals": [
     {
       "symbol": "ICICIBANK",
-      "price": 1382.9,
-      "change_pct": 3.39,
-      "vol_ratio": 5.73,
-      "turnover_cr": 8096.19,
-      "rsi_5m": 48.2,
-      "ema_200": 1358.85,
-      "stop_loss": 1379.73,
-      "target_1": 1387.66,
-      "target_2": 1390.83,
+      "price": 1381.0,
+      "change_pct": 3.25,
+      "vol_ratio": 6.19,
+      "turnover_cr": 8733.35,
+      "rsi_5m": 56.2,
+      "ema_200": 1358.83,
+      "stop_loss": 1377.26,
+      "target_1": 1386.61,
+      "target_2": 1390.35,
       "day_high": 1411.4,
       "day_low": 1329.5
     }
