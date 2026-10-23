@@ -1,18 +1,18 @@
 {
-  "last_updated": "2026-10-23 08:01:12 UTC",
+  "last_updated": "2026-10-23 13:20:59 UTC",
   "total_signals": 1,
   "signals": [
     {
       "symbol": "TCS",
-      "price": 2522.4,
-      "change_pct": 6.03,
-      "vol_ratio": 5.81,
-      "turnover_cr": 8237.49,
-      "rsi_5m": 23.8,
-      "ema_200": 2397.13,
-      "stop_loss": 2513.15,
-      "target_1": 2536.27,
-      "target_2": 2545.52,
+      "price": 2530.0,
+      "change_pct": 6.35,
+      "vol_ratio": 5.9,
+      "turnover_cr": 8420.12,
+      "rsi_5m": 45.8,
+      "ema_200": 2398.29,
+      "stop_loss": 2521.64,
+      "target_1": 2542.54,
+      "target_2": 2550.89,
       "day_high": 2623.2,
       "day_low": 2378.8
     }
