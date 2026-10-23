@@ -1,48 +1,20 @@
 {
-  "last_updated": "2026-10-22 13:44:13 UTC",
-  "total_signals": 3,
+  "last_updated": "2026-10-23 08:01:12 UTC",
+  "total_signals": 1,
   "signals": [
     {
-      "symbol": "BHARTIARTL",
-      "price": 1895.0,
-      "change_pct": 5.25,
-      "vol_ratio": 8.31,
-      "turnover_cr": 11965.95,
-      "rsi_5m": 31.5,
-      "ema_200": 1885.23,
-      "stop_loss": 1890.67,
-      "target_1": 1901.49,
-      "target_2": 1905.82,
-      "day_high": 1929.6,
-      "day_low": 1798.3
-    },
-    {
-      "symbol": "ICICIBANK",
-      "price": 1398.5,
-      "change_pct": 4.06,
-      "vol_ratio": 6.76,
-      "turnover_cr": 11059.34,
-      "rsi_5m": 62.7,
-      "ema_200": 1357.26,
-      "stop_loss": 1394.66,
-      "target_1": 1404.25,
-      "target_2": 1408.09,
-      "day_high": 1411.4,
-      "day_low": 1343.4
-    },
-    {
       "symbol": "TCS",
-      "price": 2506.9,
-      "change_pct": 7.07,
-      "vol_ratio": 6.44,
-      "turnover_cr": 9068.16,
-      "rsi_5m": 52.8,
-      "ema_200": 2396.97,
-      "stop_loss": 2500.13,
-      "target_1": 2517.06,
-      "target_2": 2523.83,
-      "day_high": 2533.1,
-      "day_low": 2337.5
+      "price": 2522.4,
+      "change_pct": 6.03,
+      "vol_ratio": 5.81,
+      "turnover_cr": 8237.49,
+      "rsi_5m": 23.8,
+      "ema_200": 2397.13,
+      "stop_loss": 2513.15,
+      "target_1": 2536.27,
+      "target_2": 2545.52,
+      "day_high": 2623.2,
+      "day_low": 2378.8
     }
   ]
 }
