@@ -1,20 +1,34 @@
 {
-  "last_updated": "2026-10-23 13:20:59 UTC",
-  "total_signals": 1,
+  "last_updated": "2026-10-26 08:12:03 UTC",
+  "total_signals": 2,
   "signals": [
     {
       "symbol": "TCS",
-      "price": 2530.0,
-      "change_pct": 6.35,
-      "vol_ratio": 5.9,
-      "turnover_cr": 8420.12,
-      "rsi_5m": 45.8,
-      "ema_200": 2398.29,
-      "stop_loss": 2521.64,
-      "target_1": 2542.54,
-      "target_2": 2550.89,
+      "price": 2524.8,
+      "change_pct": 2.76,
+      "vol_ratio": 4.23,
+      "turnover_cr": 6282.74,
+      "rsi_5m": 53.2,
+      "ema_200": 2400.51,
+      "stop_loss": 2517.13,
+      "target_1": 2536.31,
+      "target_2": 2543.98,
       "day_high": 2623.2,
-      "day_low": 2378.8
+      "day_low": 2448.3
+    },
+    {
+      "symbol": "MOREPENLAB",
+      "price": 127.63,
+      "change_pct": 2.02,
+      "vol_ratio": 1.51,
+      "turnover_cr": 256.23,
+      "rsi_5m": 64.7,
+      "ema_200": 75.58,
+      "stop_loss": 126.11,
+      "target_1": 129.91,
+      "target_2": 131.44,
+      "day_high": 128.0,
+      "day_low": 110.2
     }
   ]
 }
