@@ -1,20 +1,20 @@
 {
-  "last_updated": "2026-10-26 15:09:21 UTC",
+  "last_updated": "2026-10-27 08:26:29 UTC",
   "total_signals": 1,
   "signals": [
     {
-      "symbol": "TCS",
-      "price": 2535.0,
-      "change_pct": 3.18,
-      "vol_ratio": 4.44,
-      "turnover_cr": 6608.49,
-      "rsi_5m": 57.6,
-      "ema_200": 2400.61,
-      "stop_loss": 2528.81,
-      "target_1": 2544.29,
-      "target_2": 2550.48,
-      "day_high": 2623.2,
-      "day_low": 2448.3
+      "symbol": "BHARTIARTL",
+      "price": 1964.0,
+      "change_pct": 4.08,
+      "vol_ratio": 4.94,
+      "turnover_cr": 8006.8,
+      "rsi_5m": 40.2,
+      "ema_200": 1892.35,
+      "stop_loss": 1959.87,
+      "target_1": 1970.19,
+      "target_2": 1974.31,
+      "day_high": 1974.8,
+      "day_low": 1861.1
     }
   ]
 }
