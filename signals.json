@@ -1,18 +1,18 @@
 {
-  "last_updated": "2026-10-28 09:03:54 UTC",
+  "last_updated": "2026-10-28 15:58:34 UTC",
   "total_signals": 1,
   "signals": [
     {
       "symbol": "BHARTIARTL",
-      "price": 1958.0,
-      "change_pct": 3.72,
-      "vol_ratio": 5.53,
-      "turnover_cr": 9380.69,
-      "rsi_5m": 67.9,
-      "ema_200": 1893.99,
-      "stop_loss": 1953.31,
-      "target_1": 1965.04,
-      "target_2": 1969.73,
+      "price": 1948.1,
+      "change_pct": 3.19,
+      "vol_ratio": 5.75,
+      "turnover_cr": 9704.41,
+      "rsi_5m": 43.3,
+      "ema_200": 1893.89,
+      "stop_loss": 1942.36,
+      "target_1": 1956.71,
+      "target_2": 1962.46,
       "day_high": 1978.8,
       "day_low": 1861.1
     }
